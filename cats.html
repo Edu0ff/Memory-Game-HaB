@@ -11,8 +11,19 @@
     <header>
       <a href="index.html" class="back-btn">&larr; Go Back</a>
       <h1 class="title">Retro Wave Cats</h1>
+      <div id="score">
+        <p>Matches: <span id="matches">0</span></p>
+        <p>Misses: <span id="misses">0</span></p>
+        <p>Tries: <span id="tries">0</span></p>
+      </div>
+      <div id="timer">00:00</div>
     </header>
     <section class="memory-game">
+      <div id="popup" class="popup">
+        <h2>Congratulations!</h2>
+        <p>You won the game with a score of <span id="final-score"></span>!</p>
+        <button id="play-again-btn">Play Again</button>
+      </div>
       <div class="memory-card" data-framework="catAttack">
         <img class="front-face" src="img/cat/cat_attack.gif" alt="cat attack" />
         <img
