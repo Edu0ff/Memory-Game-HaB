@@ -5,9 +5,15 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
-// const music = new Audio ("./audio-dbz/battle.mp3");
-// music.play("./audio.dbz/battle.mp3");
-// music.loop = true;
+const miBoton = document.getElementById("botonMusic");
+
+miBoton.addEventListener("click", function() {
+  const music = new Audio ("audio/audio-dbz/Goodbye Warriors.mp3");
+  music.play ("audio/audio-dbz/Goodbye Warriors.mp3");
+  music.loop = true;
+  
+});
+
 
 function flipCard() {
   
@@ -28,12 +34,12 @@ function flipCard() {
   // insertar musica para el acierto y el fallo de parejas
   if (firstCard.dataset.framework === secondCard.dataset.framework) {
     
-    const musicAcierto = new Audio ("./audio-dbz/radar-dragonball.mp3");
-    musicAcierto.play("./audio/radar-dragonball.mp3");
+    const musicAcierto = new Audio ("audio/audio-dbz/radar-dragonball.mp3");
+    musicAcierto.play("audio/audio/radar-dragonball.mp3");
     musicAcierto.loop = false;
   } else {
-    const musicFallo = new Audio ("./audio-dbz/ball-dragon-gt-jump.mp3");
-    musicFallo.play("./audio/radar-dragonball.mp3");
+    const musicFallo = new Audio ("audio/audio-dbz/ball-dragon-gt-jump.mp3");
+    musicFallo.play("audio/audio/radar-dragonball.mp3");
     musicFallo.loop = false;
   }
 
@@ -48,7 +54,10 @@ function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
   isMatch ? disableCards() : unflipCards();
   
-  
+  // if(aciertos === 8) {
+  //   cards.forEach(card => card.addEventListener('click', flipCard));
+  //   console.log(`terminado`)
+  // }
 }
 
 function disableCards() {
@@ -90,6 +99,7 @@ function resetBoard() {
 })();
 
 
+
 cards.forEach(card => card.addEventListener('click', flipCard));
 
 
@@ -115,6 +125,8 @@ function contadorTiempo() {
 
 setInterval(contadorTiempo, 1000);
 
+
+// reseteo de cartas
 
 
 

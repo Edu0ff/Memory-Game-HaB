@@ -14,7 +14,7 @@ body {
     height: 100vh;
     display: flex;
     background: orangered;
-    background-image: url("/imagenes-dbz/fondo\ \(2\).jpg");
+    background-image: url("/img/imagenes-dbz/fondo\ \(2\).jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     background-size: cover;
@@ -78,7 +78,21 @@ body {
     color: #ffffff;
     font-size: 1.3rem;
 }
-
+/* music */
+#music {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+#botonMusic {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 196, 0);
+    font-size: 1.2rem;
+    background-color: transparent;
+}
 .memory-game {
     width: 640px;
     height: 640px;
