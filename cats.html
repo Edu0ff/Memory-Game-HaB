@@ -11,130 +11,159 @@
     <header>
       <a href="index.html" class="back-btn">&larr; Go Back</a>
       <h1 class="title">Retro Wave Cats</h1>
-      <div id="score">
-        <p>Matches: <span id="matches">0</span></p>
-        <p>Misses: <span id="misses">0</span></p>
-        <p>Tries: <span id="tries">0</span></p>
-      </div>
-      <div id="timer">00:00</div>
     </header>
-    <section class="memory-game">
-      <div id="popup" class="popup">
-        <h2>Congratulations!</h2>
-        <p>You won the game with a score of <span id="final-score"></span>!</p>
-        <button id="play-again-btn">Play Again</button>
+    <section class="memory-board">
+      <!-- Game Metrics and this things-->
+      <div class="game-metrics">
+        <div id="score">
+          <p>Matches: <span id="matches">0</span></p>
+          <p>Misses: <span id="misses">0</span></p>
+          <p>Tries: <span id="tries">0</span></p>
+        </div>
+        <div id="timer">00:00</div>
       </div>
-      <div class="memory-card" data-framework="catAttack">
-        <img class="front-face" src="img/cat/cat_attack.gif" alt="cat attack" />
-        <img
-          class="back-face"
-          src="img/cat/Nian_cat_back_card.svg"
-          alt="Nian cat"
-        />
-      </div>
-      <div class="memory-card" data-framework="catAttack">
-        <img class="front-face" src="img/cat/cat_attack.gif" alt="cat attack" />
-        <img
-          class="back-face"
-          src="img/cat/Nian_cat_back_card.svg"
-          alt="Nian cat"
-        />
-      </div>
-      <div class="memory-card" data-framework="catDjPizza">
-        <img
-          class="front-face"
-          src="img/cat/cat_dj_pizza.gif"
-          alt="cat attack"
-        />
-        <img
-          class="back-face"
-          src="img/cat/Nian_cat_back_card.svg"
-          alt="Nian cat"
-        />
-      </div>
-      <div class="memory-card" data-framework="catDjPizza">
-        <img
-          class="front-face"
-          src="img/cat/cat_dj_pizza.gif"
-          alt="cat attack"
-        />
-        <img
-          class="back-face"
-          src="img/cat/Nian_cat_back_card.svg"
-          alt="Nian cat"
-        />
-      </div>
-      <div class="memory-card" data-framework="catSushi">
-        <img class="front-face" src="img/cat/cat_sushi.gif" alt="cat attack" />
-        <img
-          class="back-face"
-          src="img/cat/Nian_cat_back_card.svg"
-          alt="Nian cat"
-        />
-      </div>
-      <div class="memory-card" data-framework="catSushi">
-        <img class="front-face" src="img/cat/cat_sushi.gif" alt="cat attack" />
-        <img
-          class="back-face"
-          src="img/cat/Nian_cat_back_card.svg"
-          alt="Nian cat"
-        />
-      </div>
-      <div class="memory-card" data-framework="catCage">
-        <img class="front-face" src="img/cat/cat_cage.gif" alt="cat attack" />
-        <img
-          class="back-face"
-          src="img/cat/Nian_cat_back_card.svg"
-          alt="Nian cat"
-        />
-      </div>
-      <div class="memory-card" data-framework="catCage">
-        <img class="front-face" src="img/cat/cat_cage.gif" alt="cat attack" />
-        <img
-          class="back-face"
-          src="img/cat/Nian_cat_back_card.svg"
-          alt="Nian cat"
-        />
-      </div>
-      <div class="memory-card" data-framework="catGod">
-        <img class="front-face" src="img/cat/cat_god.gif" alt="cat attack" />
-        <img
-          class="back-face"
-          src="img/cat/Nian_cat_back_card.svg"
-          alt="Nian cat"
-        />
-      </div>
-      <div class="memory-card" data-framework="catGod">
-        <img class="front-face" src="img/cat/cat_god.gif" alt="cat attack" />
-        <img
-          class="back-face"
-          src="img/cat/Nian_cat_back_card.svg"
-          alt="Nian cat"
-        />
-      </div>
-      <div class="memory-card" data-framework="catPizzaEater">
-        <img
-          class="front-face"
-          src="img/cat/cat_pizza_eater.gif"
-          alt="cat attack"
-        />
-        <img
-          class="back-face"
-          src="img/cat/Nian_cat_back_card.svg"
-          alt="Nian cat"
-        />
-      </div>
-      <div class="memory-card" data-framework="catPizzaEater">
-        <img
-          class="front-face"
-          src="img/cat/cat_pizza_eater.gif"
-          alt="cat attack"
-        />
-        <img
-          class="back-face"
-          src="img/cat/Nian_cat_back_card.svg"
-          alt="Nian cat"
-        />
+      <div class="memory-game">
+        <!-- Popup Start Game -->
+        <div class="overlay">
+          <div class="popup">
+            <h2>Catmemory Game</h2>
+            <p id="startMessage">Click on start button to begin</p>
+            <p id="playAgainMessage" style="display: none">
+              Play again Message
+            </p>
+            <button id="startBtn">Start</button>
+            <!-- Play again button here -->
+            <button id="playAgainBtn" style="display: none">Play again</button>
+          </div>
+        </div>
+        <div class="memory-card" data-framework="catAttack">
+          <img
+            class="front-face"
+            src="img/cat/cat_attack.gif"
+            alt="cat attack"
+          />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <div class="memory-card" data-framework="catAttack">
+          <img
+            class="front-face"
+            src="img/cat/cat_attack.gif"
+            alt="cat attack"
+          />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <div class="memory-card" data-framework="catDjPizza">
+          <img
+            class="front-face"
+            src="img/cat/cat_dj_pizza.gif"
+            alt="cat attack"
+          />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <div class="memory-card" data-framework="catDjPizza">
+          <img
+            class="front-face"
+            src="img/cat/cat_dj_pizza.gif"
+            alt="cat attack"
+          />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <div class="memory-card" data-framework="catSushi">
+          <img
+            class="front-face"
+            src="img/cat/cat_sushi.gif"
+            alt="cat attack"
+          />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <div class="memory-card" data-framework="catSushi">
+          <img
+            class="front-face"
+            src="img/cat/cat_sushi.gif"
+            alt="cat attack"
+          />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <div class="memory-card" data-framework="catCage">
+          <img class="front-face" src="img/cat/cat_cage.gif" alt="cat attack" />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <div class="memory-card" data-framework="catCage">
+          <img class="front-face" src="img/cat/cat_cage.gif" alt="cat attack" />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <div class="memory-card" data-framework="catGod">
+          <img class="front-face" src="img/cat/cat_god.gif" alt="cat attack" />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <div class="memory-card" data-framework="catGod">
+          <img class="front-face" src="img/cat/cat_god.gif" alt="cat attack" />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <div class="memory-card" data-framework="catPizzaEater">
+          <img
+            class="front-face"
+            src="img/cat/cat_pizza_eater.gif"
+            alt="cat attack"
+          />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <div class="memory-card" data-framework="catPizzaEater">
+          <img
+            class="front-face"
+            src="img/cat/cat_pizza_eater.gif"
+            alt="cat attack"
+          />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
       </div>
     </section>
     <script src="js/cats.js"></script>
