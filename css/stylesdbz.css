@@ -17,6 +17,66 @@ body {
     background-image: url("/imagenes-dbz/fondo\ \(2\).jpg");
     background-repeat: no-repeat;
     background-size: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.board-head {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    justify-content: flex-start;
+}
+/* #scores {
+    display: flex;
+    margin-top: auto;
+    color: rgb(255, 196, 0);
+    font-size: 1.3rem;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    background: #1c7ccc;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+} */
+
+/* #contador {
+    display: flex;
+    margin-top: auto;
+    color: rgb(255, 196, 0);
+    font-size: 1.3rem;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    background: #1c7ccc;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+} */
+
+/* contador de tiempo */
+#contador-head {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+#contador {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 196, 0);
+    font-size: 1.3rem;
+}
+/* puntuacion */
+#scores-head {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+#scores {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 1.3rem;
 }
 
 .memory-game {
@@ -26,6 +86,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     perspective: 1000px;
+    opacity: 0.95;
 }
 
 .memory-card {
@@ -72,7 +133,7 @@ body {
     width: 80px;
     height: 100px;
 }
-h2 {
+.board-head {
     width: 100%;
     display: flex;
     justify-content: space-between;

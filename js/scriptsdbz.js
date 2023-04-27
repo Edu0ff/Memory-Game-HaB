@@ -56,7 +56,7 @@ function disableCards() {
   secondCard.removeEventListener('click', flipCard);
   aciertos += 1;
   intentos += 1;
-  scoresSpan.textContent = `Aciertos ${aciertos} Fallos ${fallos} Intentos ${intentos}`
+  scoresSpan.textContent = `Aciertos: ${aciertos} Fallos: ${fallos} Intentos: ${intentos}`
   
   resetBoard();
 }
@@ -65,7 +65,7 @@ function unflipCards() {
   lockBoard = true;
   fallos += 1;
   intentos += 1;
-  scoresSpan.textContent = `Aciertos ${aciertos} Fallos ${fallos} Intentos ${intentos}`
+  scoresSpan.textContent = `Aciertos: ${aciertos} Fallos: ${fallos} Intentos: ${intentos}`
   
   setTimeout(() => {
     firstCard.classList.remove('flip');
@@ -95,6 +95,25 @@ cards.forEach(card => card.addEventListener('click', flipCard));
 
 
 // contador tiempo
+
+var segundos = 0;
+var minutos = 0;
+
+
+function contadorTiempo() {
+  segundos++;
+  if (segundos == 60) {
+    segundos = 0;
+    minutos++;
+  }
+  if (minutos == 60) {
+    minutos = 0;
+    horas++;
+  }
+  document.getElementById("contador").innerHTML = minutos + ":" + segundos;
+}
+
+setInterval(contadorTiempo, 1000);
 
 
 
