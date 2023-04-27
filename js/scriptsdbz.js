@@ -87,6 +87,7 @@ function unflipCards() {
 function resetBoard() {
   [hasFlippedCard, lockBoard] = [false, false];
   [firstCard, secondCard] = [null, null];
+  
 }
 
 
@@ -95,6 +96,7 @@ function resetBoard() {
   cards.forEach(card => {
     let ramdomPos = Math.floor(Math.random() * 16);
     card.style.order = ramdomPos;
+   
   });
 })();
 
@@ -106,8 +108,8 @@ cards.forEach(card => card.addEventListener('click', flipCard));
 
 // contador tiempo
 
-var segundos = 0;
-var minutos = 0;
+let segundos = 0;
+let minutos = 0;
 
 
 function contadorTiempo() {
@@ -120,6 +122,9 @@ function contadorTiempo() {
     minutos = 0;
     horas++;
   }
+  if (segundos == 90) {
+    alert(`Freezer Wins!`)
+  }
   document.getElementById("contador").innerHTML = minutos + ":" + segundos;
 }
 
@@ -129,7 +134,31 @@ setInterval(contadorTiempo, 1000);
 // reseteo de cartas
 
 
+function checkForMatch() {
+  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+  isMatch ? disableCards() : unflipCards();
+  
+  if(aciertos === 8) {
+    resetGame();
+  }
+}
 
-
+function resetGame() {
+  cards.forEach(card => card.removeEventListener('click', flipCard));
+  setTimeout(() => {
+    cards.forEach(card => {
+      card.classList.remove('flip');
+      card.addEventListener('click', flipCard);
+    });
+    shuffleCards();
+    aciertos = 0;
+    fallos = 0;
+    intentos = 0;
+    segundos = 0;
+    minutos = 0;
+    document.getElementById("contador").innerHTML = minutos + ":" + segundos;
+    scoresSpan.textContent = `Aciertos: ${aciertos} Fallos: ${fallos} Intentos: ${intentos}`
+  }, 2000);
+}
 
 
