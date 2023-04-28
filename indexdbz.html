@@ -5,131 +5,135 @@
 
         <title>Dragon ball Memory Game</title>
 
-        <link rel="stylesheet" href="./stylesdbz.css" />
+        <link rel="stylesheet" href="css/stylesdbz.css" />
+        <link  rel="icon"   href="/img/imagenes-dbz/nube_dbz.svg" type="fondo.png" />
     </head>
 
     <body>
         
-        <div id="scores">Aciertos 0 Fallos 0 Intentos 0</div>
         <section class="memory-game">
             
+            
             <div class="board"></div>
-                <!-- <div>
-                    <img
-                        src="img/Dragon_Ball_Logo.svg"
-                        alt="Dragon_Ball_Logo"
+                
+                <div class="board-head">
+                    <div id="music">
+                        <img src="img/imagenes-dbz/ball_dbz_1.svg" alt="Dragon_radar"
+                                height="80"
+                                width="80"/>
+                        <button id="botonMusic">Play Music</button>
+                    </div>
+                    <div id="music">
+                        <img src="img/imagenes-dbz/ball_dbz_7.svg" alt="Dragon_radar"
+                                height="80"
+                                width="80"/>
+                        <button id="botonMusic">Stop Music</button>
+                    </div>
+                    <div id="scores-head">
+                        <img src="img/imagenes-dbz/nube_dbz.svg" alt="shenron"
                         height="80"
-                        width="430"
-                    />
-                </div> -->
-                <!-- <h2>
+                        width="200"/>
+                        <div id="scores">Aciertos:0 Fallos:0 Intentos:0</div>
+                    </div>
+                    <div id="contador-head">
+                        <img src="img/imagenes-dbz/dragonradar.svg" alt="Dragon_radar"
+                        height="80"
+                        width="80"/>
+                        <div id="contador"></div>
+                    </div>
                     
-                    </div>
-
                     <div>
-                        <button class="radar" type="button">
-                            <input
-                                type="image"
-                                src="/img/dragonradar.svg"
-                                height="80"
-                                width="100"
-                            />
-                        </button>
+                        <img
+                            src="img/imagenes-dbz/Dragon_Ball_Logo.svg"
+                            alt="Dragon_Ball_Logo"
+                            height="80"
+                            width="200"
+                        />
                     </div>
-                    <div id="timer">0:00:00</div>
-                    <div>
-                        <button class="radar" type="button">
-                            <input
-                                type="image"
-                                src="/img/dragonradar.svg"
-                                height="80"
-                                width="100"
-                            />
-                        </button>
-                    </div>
-                </h2> -->
+                </div>
 
-                <div class="memory-card" data-framework="mutenroi">
-                    <img class="front-face" src="imagenesdbz/mutenroi.svg" alt="mutenroi" />
-                    <img class="back-face" src="imagenes-dbz/balls.svg" alt="Memory Card" />
+                <div class="memory-card" data-framework="gokusj">
+                    <img class="front-face" src="img/imagenes-dbz/gokusj.svg" alt="gokusj" />
+                    <img class="back-face" src="img/imagenes-dbz/ball_dbz_7.svg" alt="Memory Card" />
+                </div>
+
+                <div class="memory-card" data-framework="gokusj">
+                    <img class="front-face" src="img/imagenes-dbz/gokusj.svg" alt="gokusj" />
+                    <img class="back-face" src="img/imagenes-dbz/ball_dbz_7.svg" alt="Memory Card" />
                 </div>
 
                 <div class="memory-card" data-framework="mutenroi">
-                    <img class="front-face" src="imagenes-dbz/mutenroi.svg" alt="mutenroi" />
-                    <img class="back-face" src="imagenes-dbz/balls.svg" alt="Memory Card" />
+                    <img class="front-face" src="img/imagenes-dbz/mutenroi.svg" alt="mutenroi" />
+                    <img class="back-face" src="img/imagenes-dbz/ball_dbz_7.svg" alt="Memory Card" />
                 </div>
 
-                <div class="memory-card" data-framework="kaio">
-                    <img class="front-face" src="imagenes-dbz/kaio.svg" alt="buu" />
-                    <img class="back-face" src="imagenes-dbz/balls.svg" alt="Memory Card" />
-                </div>
-
-                <div class="memory-card" data-framework="kaio">
-                    <img class="front-face" src="imagenes-dbz/kaio.svg" alt="kaio" />
-                    <img class="back-face" src="imagenes-dbz/balls.svg" alt="Memory Card" />
-                </div>
-                <div class="memory-card" data-framework="vegeta">
-                    <img class="front-face" src="imagenes-dbz/vegeta.svg" alt="vegeta" />
-                    <img class="back-face" src="imagenes-dbz/balls.svg" alt="Memory Card" />
+                <div class="memory-card" data-framework="mutenroi">
+                    <img class="front-face" src="img/imagenes-dbz/mutenroi.svg" alt="mutenroi" />
+                    <img class="back-face" src="img/imagenes-dbz/ball_dbz_7.svg" alt="Memory Card" />
                 </div>
 
                 <div class="memory-card" data-framework="vegeta">
-                    <img class="front-face" src="imagenes-dbz/vegeta.svg" alt="vegeta" />
-                    <img class="back-face" src="imagenes-dbz/balls.svg" alt="Memory Card" />
+                    <img class="front-face" src="img/imagenes-dbz/vegeta_s4.svg" alt="vegeta" />
+                    <img class="back-face" src="img/imagenes-dbz/ball_dbz_7.svg" alt="Memory Card" />
+                </div>
+
+                <div class="memory-card" data-framework="vegeta">
+                    <img class="front-face" src="img/imagenes-dbz/vegeta_s4.svg" alt="vegeta" />
+                    <img class="back-face" src="img/imagenes-dbz/ball_dbz_7.svg" alt="Memory Card" />
                 </div>
 
                 <div class="memory-card" data-framework="buu">
-                    <img class="front-face" src="imagenes-dbz/buu.svg" alt="buu" />
-                    <img class="back-face" src="imagenes-dbz/balls.svg" alt="Memory Card" />
+                    <img class="front-face" src="img/imagenes-dbz/buu.svg" alt="buu" />
+                    <img class="back-face" src="img/imagenes-dbz/ball_dbz_7.svg" alt="Memory Card" />
                 </div>
 
                 <div class="memory-card" data-framework="buu">
-                    <img class="front-face" src="imagenes-dbz/buu.svg" alt="buu" />
-                    <img class="back-face" src="imagenes-dbz/balls.svg" alt="Memory Card" />
+                    <img class="front-face" src="img/imagenes-dbz/buu.svg" alt="buu" />
+                    <img class="back-face" src="img/imagenes-dbz/ball_dbz_7.svg" alt="Memory Card" />
                 </div>
 
-                <div class="memory-card" data-framework="gohan">
-                    <img class="front-face" src="imagenes-dbz/gohan.svg" alt="gohan" />
-                    <img class="back-face" src="imagenes-dbz/balls.svg" alt="Memory Card" />
+                <div class="memory-card" data-framework="gokugt">
+                    <img class="front-face" src="img/imagenes-dbz/gokugt.svg" alt="gokugt" />
+                    <img class="back-face" src="img/imagenes-dbz/ball_dbz_7.svg" alt="Memory Card" />
                 </div>
 
-                <div class="memory-card" data-framework="gohan">
-                    <img class="front-face" src="imagenes-dbz/gohan.svg" alt="gohan" />
-                    <img class="back-face" src="imagenes-dbz/balls.svg" alt="Memory Card" />
-                </div>
-
-                <div class="memory-card" data-framework="goku">
-                    <img class="front-face" src="imagenes-dbz/goku.svg" alt="goku" />
-                    <img class="back-face" src="imagenes-dbz/balls.svg" alt="Memory Card" />
+                <div class="memory-card" data-framework="gokugt">
+                    <img class="front-face" src="img/imagenes-dbz/gokugt.svg" alt="gokugt" />
+                    <img class="back-face" src="img/imagenes-dbz/ball_dbz_7.svg" alt="Memory Card" />
                 </div>
 
                 <div class="memory-card" data-framework="goku">
-                    <img class="front-face" src="imagenes-dbz/goku.svg" alt="goku" />
-                    <img class="back-face" src="imagenes-dbz/balls.svg" alt="Memory Card" />
+                    <img class="front-face" src="img/imagenes-dbz/goku.svg" alt="goku" />
+                    <img class="back-face" src="img/imagenes-dbz/ball_dbz_7.svg" alt="Memory Card" />
+                </div>
+
+                <div class="memory-card" data-framework="goku">
+                    <img class="front-face" src="img/imagenes-dbz/goku.svg" alt="goku" />
+                    <img class="back-face" src="img/imagenes-dbz/ball_dbz_7.svg" alt="Memory Card" />
                 </div>
 
                 <div class="memory-card" data-framework="krillin">
-                    <img class="front-face" src="imagenes-dbz/krillin.svg" alt="krillin" />
-                    <img class="back-face" src="imagenes-dbz/balls.svg" alt="Memory Card" />
+                    <img class="front-face" src="img/imagenes-dbz/krillin.svg" alt="krillin" />
+                    <img class="back-face" src="img/imagenes-dbz/ball_dbz_7.svg" alt="Memory Card" />
                 </div>
 
                 <div class="memory-card" data-framework="krillin">
-                    <img class="front-face" src="imagenes-dbz/krillin.svg" alt="krillin" />
-                    <img class="back-face" src="imagenes-dbz/balls.svg" alt="Memory Card" />
+                    <img class="front-face" src="img/imagenes-dbz/krillin.svg" alt="krillin" />
+                    <img class="back-face" src="img/imagenes-dbz/ball_dbz_7.svg" alt="Memory Card" />
                 </div>
 
                 <div class="memory-card" data-framework="trunks">
-                    <img class="front-face" src="imagenes-dbz/trunks.svg" alt="trunks" />
-                    <img class="back-face" src="imagenes-dbz/balls.svg" alt="Memory Card" />
+                    <img class="front-face" src="img/imagenes-dbz/trunks.svg" alt="trunks" />
+                    <img class="back-face" src="img/imagenes-dbz/ball_dbz_7.svg" alt="Memory Card" />
                 </div>
 
                 <div class="memory-card" data-framework="trunks">
-                    <img class="front-face" src="imagenes-dbz/trunks.svg" alt="trunks" />
-                    <img class="back-face" src="imagenes-dbz/balls.svg" alt="Memory Card" />
+                    <img class="front-face" src="img/imagenes-dbz/trunks.svg" alt="trunks" />
+                    <img class="back-face" src="img/imagenes-dbz/ball_dbz_7.svg" alt="Memory Card" />
                 </div>
             </div>
         </section>
 
-        <script src="./scriptsdbz.js"></script>
+        <script src="js/scriptsdbz.js"></script>
     </body>
 </html>
