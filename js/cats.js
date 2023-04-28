@@ -1,25 +1,16 @@
-// Declare variables for cards, cards flipped, for locking the board, and for identifying both cards clicked
+//BASE GAME LOGICS
+
+// Declare variables for cards, cards flipped, for locking the board
+// and for identifying both cards clicked
 
 const cards = document.querySelectorAll('.memory-card');
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
-let matches = 0;
-let misses = 0;
-let tries = 0;
 
 // Add listener over the cards to be able to play with them
 
 cards.forEach(card => card.addEventListener('click', flipCard));
-
-//Variables for the score sistem and metrics
-
-const matchesSpan = document.getElementById('matches');
-const missesSpan = document.getElementById('misses');
-const triesSpan = document.getElementById('tries');
-const finalResultSpan = document.getElementById('playAgainMessage');
-
-
 
 // This function includes the property flips to the cards so the effect
 // is added using the CSS
@@ -37,10 +28,9 @@ function flipCard() {
   }
 };
 
-// This function is meant to check if both cards selected by the users have the same image.
-// If both cards are the same, the listener is erased so both cards remain flipped. 
-//If not, both cards return to the original position.
-//It also counts the tries, misses and matches and capture them to show them in the web
+// Check if both cards are igual
+// True add matches & tries. Revome listener and change card's ids. Check finish game
+// False flip cards with a delay and lock the board. Add misses and tries
 
 const checkMatch = () => {
   if (firstCard.dataset.framework === secondCard.dataset.framework) {
@@ -65,7 +55,7 @@ const checkMatch = () => {
   }
 };
 
-// To make the cards appear randomly
+// To re-arrange the order randomly
 
 const shuffle = () => {
   cards.forEach(card => {
@@ -76,14 +66,8 @@ const shuffle = () => {
 
 shuffle();
 
-
-//Store the results
-
-let gameNumber = 0;
-
-
-
 // Check if the game is complete
+// Launch all the process asociated with finishing the game
 
 const finishGame = () => {
   if (matches === 6) {
@@ -106,21 +90,43 @@ const finishGame = () => {
   }
 };
 
+//METRICS
 
-//Showing on and off the popup for starting the game
-// Also reseting the game after clicking in play again.
+//Variables for measuring metrics
+let matches = 0;
+let misses = 0;
+let tries = 0;
+
+//Selecting elements in the HTML for metrics
+const matchesSpan = document.getElementById('matches');
+const missesSpan = document.getElementById('misses');
+const triesSpan = document.getElementById('tries');
+
+//POP UP MENU
+//Pop up HTML selectors
 
 const overlay = document.querySelector(".overlay");
 const popup = document.querySelector(".popup");
 const startBtn = document.querySelector("#startBtn");
 const playAgainBtn = document.getElementById("playAgainBtn");
+overlay.style.display = "flex";
+popup.style.display = "flex";
 
+//Add interactivity to the Start button
+//Disbale the pop up and allow to play when clicked
 
 startBtn.addEventListener("click", () => {
   overlay.style.display = "none";
   popup.style.display = "none";
   startTimer(); 
 });
+
+//Add interactivity to the Play Again Button
+//Disbale the pop up and allow to play again when clicked
+//Trigger to restart scores and board
+//HTML elements for pop finish game
+
+const finalResultSpan = document.getElementById('playAgainMessage');
 
 playAgainBtn.addEventListener("click", () => {
   overlay.style.display = "none";
@@ -132,7 +138,6 @@ playAgainBtn.addEventListener("click", () => {
   matchesSpan.textContent = matches;
   missesSpan.textContent = misses;
   triesSpan.textContent = tries;
-
   cards.forEach
   (card => {
     card.classList.remove('flip');
@@ -141,8 +146,8 @@ playAgainBtn.addEventListener("click", () => {
   shuffle();
 });
 
-overlay.style.display = "flex";
-popup.style.display = "flex";
+
+//TIMER
 
 // Add timer variables
 
@@ -154,7 +159,7 @@ let time = 0;
 let timer;
 let elapsedTime = 0;
 
-// Update the timer
+// Update the timer function
 
 function updateTimer() {
   const currentTime = new Date().getTime();
@@ -182,8 +187,7 @@ function stopTimer() {
 function calculateElapsedTime() {
   const endTime = new Date().getTime();
   return endTime - startTime;
-}
-
+};
 
 // Misilecons translator to minutes and seconds to show it in the finnal mesage
 
@@ -191,32 +195,36 @@ function msToTime(duration) {
   const milliseconds = parseInt((duration % 1000) / 100),
         seconds = parseInt((duration / 1000) % 60),
         minutes = parseInt((duration / (1000 * 60)) % 60);
-
   return `${minutes}m ${seconds}s`;
 };
 
-//Socring system
+//SCORING SYSTEM
 
+//Scoring system Weights and Variables
 const maxTime = 60000;
 const maxTries = 12;
 const minTries = 6;
 const weightTime = 0.5;
 const weightTries = 0.5;
 
-
+//Based 1000 scoring calculation
 function calculateFinalScore(elapsedTime, tries) {
   let timeFactor = (maxTime - elapsedTime) / maxTime;
   let triesFactor = 1 - ((tries - minTries) / (maxTries - minTries));
   let finalScore = 1000 * (timeFactor * weightTime + triesFactor * weightTries);
-
   return finalScore;
-}
-// game log system 
+};
 
+// GAME LOG SYSTES
+
+//Store the results
+let gameNumber = 0;
+
+//Html selector and empty array to store result
 const gameLog = document.getElementById('game-log');
 const gameResults = [];
 
-// Function to display the game log
+// Captures the Game number and Score and injected in the HTML
 function displayGameLog() {
   gameLog.innerHTML = '';
   gameResults.forEach((result, index) => {
