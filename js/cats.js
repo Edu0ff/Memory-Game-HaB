@@ -8,6 +8,10 @@ let matches = 0;
 let misses = 0;
 let tries = 0;
 
+// Add listener over the cards to be able to play with them
+
+cards.forEach(card => card.addEventListener('click', flipCard));
+
 //Variables for the score sistem and metrics
 
 const matchesSpan = document.getElementById('matches');
@@ -15,9 +19,7 @@ const missesSpan = document.getElementById('misses');
 const triesSpan = document.getElementById('tries');
 const finalResultSpan = document.getElementById('playAgainMessage');
 
-// Add listener over the cards to be able to play with them
 
-cards.forEach(card => card.addEventListener('click', flipCard));
 
 // This function includes the property flips to the cards so the effect
 // is added using the CSS
@@ -74,6 +76,13 @@ const shuffle = () => {
 
 shuffle();
 
+
+//Store the results
+
+let gameNumber = 0;
+
+
+
 // Check if the game is complete
 
 const finishGame = () => {
@@ -89,7 +98,11 @@ const finishGame = () => {
     let elapsedTime = calculateElapsedTime();
     const elapsedTimeFormatted = msToTime(elapsedTime);
     let finalScore = Math.round(calculateFinalScore(elapsedTime,tries));
+    gameNumber++
     finalResultSpan.textContent = `Your final result is misses: ${misses}, matches ${matches} y tries ${tries}. And the time is ${elapsedTimeFormatted}. Your final score is ${finalScore}/1000`;
+    gameResults.push({game: gameNumber, score: finalScore});
+    displayGameLog();
+    console.log(gameResults);
   }
 };
 
@@ -114,7 +127,7 @@ playAgainBtn.addEventListener("click", () => {
   popup.style.display = "none"; 
   matches = 0;
   misses = 0;
-  tries = 0;
+  tries = 0; 
   startTimer();
   matchesSpan.textContent = matches;
   missesSpan.textContent = misses;
@@ -198,5 +211,20 @@ function calculateFinalScore(elapsedTime, tries) {
 
   return finalScore;
 }
+// game log system 
 
-//more things
+const gameLog = document.getElementById('game-log');
+const gameResults = [];
+
+// Function to display the game log
+function displayGameLog() {
+  gameLog.innerHTML = '';
+  gameResults.forEach((result, index) => {
+    const gameResultDiv = document.createElement('div');
+    gameResultDiv.classList.add('game-result');
+    gameResultDiv.innerHTML = `Game ${result.game}: Socore ${result.score} `;
+    gameLog.appendChild(gameResultDiv);
+  });
+}
+// Call the displayGameLog function initially to show any existing game results
+displayGameLog();
