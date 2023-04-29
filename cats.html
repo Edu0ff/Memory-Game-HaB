@@ -27,16 +27,35 @@
         <!-- Popup Start Game -->
         <div class="overlay">
           <div class="popup">
-            <h2>Catmemory Game</h2>
-            <p id="startMessage">Click on start button to begin</p>
-            <p id="playAgainMessage" style="display: none">
-              Play again Message
-            </p>
-            <button id="startBtn">Start</button>
-            <!-- Play again button here -->
-            <button id="playAgainBtn" style="display: none">Play again</button>
+            <div class="popup-box">
+              <h2>Select Level</h2>
+              <label>
+                <input type="radio" name="selector" value="easy" checked />
+                Easy
+              </label>
+              <label>
+                <input type="radio" name="selector" value="medium" /> Medium
+              </label>
+              <label>
+                <input type="radio" name="selector" value="hard" /> Hard
+              </label>
+            </div>
+            <div class="popup-box">
+              <p id="startMessage">Click on start button to begin</p>
+              <p id="playAgainMessage" style="display: none">
+                Play again Message
+              </p>
+            </div>
+            <div class="popup-box">
+              <button id="startBtn">Start</button>
+              <!-- Play again button here -->
+              <button id="playAgainBtn" style="display: none">
+                Play again
+              </button>
+            </div>
           </div>
         </div>
+        <!-- pair 1 -->
         <div class="memory-card" data-framework="catAttack">
           <img
             class="front-face"
@@ -61,6 +80,7 @@
             alt="Nian cat"
           />
         </div>
+        <!-- pair 2 -->
         <div class="memory-card" data-framework="catDjPizza">
           <img
             class="front-face"
@@ -85,6 +105,7 @@
             alt="Nian cat"
           />
         </div>
+        <!-- pair 3 -->
         <div class="memory-card" data-framework="catSushi">
           <img
             class="front-face"
@@ -109,22 +130,32 @@
             alt="Nian cat"
           />
         </div>
-        <div class="memory-card" data-framework="catCage">
-          <img class="front-face" src="img/cat/cat_cage.gif" alt="cat attack" />
+        <!-- pair 4 -->
+        <div class="memory-card" data-framework="catPanic">
+          <img
+            class="front-face"
+            src="img/cat/cat_panic.gif"
+            alt="cat attack"
+          />
           <img
             class="back-face"
             src="img/cat/Nian_cat_back_card.svg"
             alt="Nian cat"
           />
         </div>
-        <div class="memory-card" data-framework="catCage">
-          <img class="front-face" src="img/cat/cat_cage.gif" alt="cat attack" />
+        <div class="memory-card" data-framework="catPanic">
+          <img
+            class="front-face"
+            src="img/cat/cat_panic.gif"
+            alt="cat attack"
+          />
           <img
             class="back-face"
             src="img/cat/Nian_cat_back_card.svg"
             alt="Nian cat"
           />
         </div>
+        <!-- pair 5 -->
         <div class="memory-card" data-framework="catGod">
           <img class="front-face" src="img/cat/cat_god.gif" alt="cat attack" />
           <img
@@ -141,6 +172,7 @@
             alt="Nian cat"
           />
         </div>
+        <!-- pair 6 -->
         <div class="memory-card" data-framework="catPizzaEater">
           <img
             class="front-face"
@@ -159,6 +191,82 @@
             src="img/cat/cat_pizza_eater.gif"
             alt="cat attack"
           />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <!-- pair 7 -->
+        <div class="memory-card" data-framework="catLaser">
+          <img class="front-face" src="img/cat/cat_laser.gif" alt="cat laser" />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <div class="memory-card" data-framework="catLaser">
+          <img class="front-face" src="img/cat/cat_laser.gif" alt="cat laser" />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <!-- pair 8 -->
+        <div class="memory-card" data-framework="catFinger">
+          <img
+            class="front-face"
+            src="img/cat/cat_finger.gif"
+            alt="cat Finger"
+          />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <div class="memory-card" data-framework="catFinger">
+          <img
+            class="front-face"
+            src="img/cat/cat_finger.gif"
+            alt="cat Finger"
+          />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <!-- pair 9 -->
+        <div class="memory-card" data-framework="catOvni">
+          <img class="front-face" src="img/cat/cat_ovni.gif" alt="cat Ovni" />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <div class="memory-card" data-framework="catOvni">
+          <img class="front-face" src="img/cat/cat_ovni.gif" alt="cat Ovni" />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <!-- pair 10 -->
+        <div class="memory-card" data-framework="catKnit">
+          <img class="front-face" src="img/cat/cat_knit.gif" alt="cat Knit" />
+          <img
+            class="back-face"
+            src="img/cat/Nian_cat_back_card.svg"
+            alt="Nian cat"
+          />
+        </div>
+        <div class="memory-card" data-framework="catKnit">
+          <img class="front-face" src="img/cat/cat_knit.gif" alt="cat Knit" />
           <img
             class="back-face"
             src="img/cat/Nian_cat_back_card.svg"

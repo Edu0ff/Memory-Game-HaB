@@ -1,3 +1,48 @@
+//DIFICULTY MODE
+
+const selectorElems = document.querySelectorAll('input[name="selector"]');
+let selectedDificulty = "easy";
+
+selectorElems.forEach((elem) => {
+  elem.addEventListener("click", () => {
+    selectedDificulty = elem.value;
+    console.log(selectedDificulty);
+    setDifficulty(selectedDificulty); 
+  });
+});
+
+
+//
+
+function setDifficulty(difficulty) {
+  const easyPairs = 6;
+  const mediumPairs = 8;
+  const hardPairs = 10;
+  let pairsToShow;
+
+  if (difficulty === 'easy') {
+    pairsToShow = easyPairs;
+  } else if (difficulty === 'medium') {
+    pairsToShow = mediumPairs;
+  } else if (difficulty === 'hard') {
+    pairsToShow = hardPairs;
+  }
+
+  const cardsDificulty = document.querySelectorAll('.memory-card');
+  cards.forEach((card, index) => {
+    if (index < pairsToShow * 2) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+    
+    card.classList.remove("memory-card");
+    card.classList.remove("easy", "medium", "hard");
+    card.classList.add("memory-card", selectedDificulty);
+  });
+  
+}
+
 //BASE GAME LOGICS
 
 // Declare variables for cards, cards flipped, for locking the board
@@ -87,6 +132,7 @@ const finishGame = () => {
     gameResults.push({game: gameNumber, score: finalScore});
     displayGameLog();
     console.log(gameResults);
+    
   }
 };
 
@@ -236,3 +282,7 @@ function displayGameLog() {
 }
 // Call the displayGameLog function initially to show any existing game results
 displayGameLog();
+
+
+
+

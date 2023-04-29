@@ -8,6 +8,18 @@
 
 /* Header part */
 
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* add this line */
+  height: 60px;
+  width: 100%;
+  background-color: #eee;
+  padding: 0 20px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #4b0082 0%, #ff1493 100%);
+}
+
 h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -67,7 +79,8 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  height: 20px;
 }
 
 #score {
@@ -88,8 +101,8 @@ body {
 
 /* El tablero */
 .memory-game {
-  width: 640px;
-  height: 640px;
+  width: 450px;
+  height: 450px;
   display: flex;
   flex-wrap: wrap;
   margin: auto;
@@ -98,15 +111,28 @@ body {
 /* Las carticas */
 
 .memory-card {
-  width: calc(25% - 10px);
-  height: calc(33.333% - 10px);
   position: relative;
-  margin: 5px;
+  margin: 3px;
   transform: scale(1);
   transform-style: preserve-3d;
   transition: transform 0.5s;
   border: 2px solid #ff69b4;
   box-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+}
+
+.memory-card.easy {
+  width: calc(25% - 10px);
+  height: calc(33% - 10px);
+}
+
+.memory-card.medium {
+  width: calc(25% - 10px);
+  height: calc(25% - 10px);
+}
+
+.memory-card.hard {
+  width: calc(20% - 10px);
+  height: calc(25% - 10px);
 }
 
 .memory-card:active {
@@ -152,19 +178,29 @@ body {
   z-index: 1000;
 }
 
-/* Poops apo */
+/* Popup */
 
 .popup {
   background: #fff;
-  padding: 20px;
+  padding: 10px;
+  width: 100%;
+  height: 50%;
   text-align: center;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-box {
+  width: 100%;
+  height: 33%;
+  margin: 0;
 }
 
 .popup h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-size: 1rem;
+  margin-bottom: 2px;
 }
 
 .popup p {
@@ -172,6 +208,8 @@ body {
 }
 
 .popup button {
+  height: fit-content;
+  width: fit-content;
   background: #ff69b4;
   color: #fff;
   border: none;
