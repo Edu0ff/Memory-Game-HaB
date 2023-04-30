@@ -14,16 +14,16 @@
     </header>
     <section class="memory-board">
       <!-- Game Metrics and this things-->
-      <div class="game-metrics">
-        <div id="score">
-          <p>Matches: <span id="matches">0</span></p>
-          <p>Misses: <span id="misses">0</span></p>
-          <p>Tries: <span id="tries">0</span></p>
-        </div>
-        <div id="timer">00:00</div>
-      </div>
-      <div id="game-log"></div>
+
       <div class="memory-game">
+        <div class="game-metrics">
+          <div id="score">
+            <p>Matches: <span id="matches">0</span></p>
+            <p>Misses: <span id="misses">0</span></p>
+            <p>Tries: <span id="tries">0</span></p>
+          </div>
+          <div id="timer">00:00</div>
+        </div>
         <!-- Popup Start Game -->
         <div class="overlay">
           <div class="popup">
@@ -56,7 +56,7 @@
           </div>
         </div>
         <!-- pair 1 -->
-        <div class="memory-card" data-framework="catAttack">
+        <div class="memory-card easy" data-framework="catAttack">
           <img
             class="front-face"
             src="img/cat/cat_attack.gif"
@@ -68,7 +68,7 @@
             alt="Nian cat"
           />
         </div>
-        <div class="memory-card" data-framework="catAttack">
+        <div class="memory-card easy" data-framework="catAttack">
           <img
             class="front-face"
             src="img/cat/cat_attack.gif"
@@ -81,7 +81,7 @@
           />
         </div>
         <!-- pair 2 -->
-        <div class="memory-card" data-framework="catDjPizza">
+        <div class="memory-card easy" data-framework="catDjPizza">
           <img
             class="front-face"
             src="img/cat/cat_dj_pizza.gif"
@@ -93,7 +93,7 @@
             alt="Nian cat"
           />
         </div>
-        <div class="memory-card" data-framework="catDjPizza">
+        <div class="memory-card easy" data-framework="catDjPizza">
           <img
             class="front-face"
             src="img/cat/cat_dj_pizza.gif"
@@ -106,7 +106,7 @@
           />
         </div>
         <!-- pair 3 -->
-        <div class="memory-card" data-framework="catSushi">
+        <div class="memory-card easy" data-framework="catSushi">
           <img
             class="front-face"
             src="img/cat/cat_sushi.gif"
@@ -118,7 +118,7 @@
             alt="Nian cat"
           />
         </div>
-        <div class="memory-card" data-framework="catSushi">
+        <div class="memory-card easy" data-framework="catSushi">
           <img
             class="front-face"
             src="img/cat/cat_sushi.gif"
@@ -131,7 +131,7 @@
           />
         </div>
         <!-- pair 4 -->
-        <div class="memory-card" data-framework="catPanic">
+        <div class="memory-card easy" data-framework="catPanic">
           <img
             class="front-face"
             src="img/cat/cat_panic.gif"
@@ -143,7 +143,7 @@
             alt="Nian cat"
           />
         </div>
-        <div class="memory-card" data-framework="catPanic">
+        <div class="memory-card easy" data-framework="catPanic">
           <img
             class="front-face"
             src="img/cat/cat_panic.gif"
@@ -156,7 +156,7 @@
           />
         </div>
         <!-- pair 5 -->
-        <div class="memory-card" data-framework="catGod">
+        <div class="memory-card easy" data-framework="catGod">
           <img class="front-face" src="img/cat/cat_god.gif" alt="cat attack" />
           <img
             class="back-face"
@@ -164,7 +164,7 @@
             alt="Nian cat"
           />
         </div>
-        <div class="memory-card" data-framework="catGod">
+        <div class="memory-card easy" data-framework="catGod">
           <img class="front-face" src="img/cat/cat_god.gif" alt="cat attack" />
           <img
             class="back-face"
@@ -173,7 +173,7 @@
           />
         </div>
         <!-- pair 6 -->
-        <div class="memory-card" data-framework="catPizzaEater">
+        <div class="memory-card easy" data-framework="catPizzaEater">
           <img
             class="front-face"
             src="img/cat/cat_pizza_eater.gif"
@@ -185,7 +185,7 @@
             alt="Nian cat"
           />
         </div>
-        <div class="memory-card" data-framework="catPizzaEater">
+        <div class="memory-card easy" data-framework="catPizzaEater">
           <img
             class="front-face"
             src="img/cat/cat_pizza_eater.gif"
@@ -273,6 +273,9 @@
             alt="Nian cat"
           />
         </div>
+      </div>
+      <div id="game-log" class="game-log">
+        <p>patatas fritas con canelones</p>
       </div>
     </section>
     <script src="js/cats.js"></script>

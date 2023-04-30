@@ -1,65 +1,69 @@
-//DIFICULTY MODE
+//-------------------- VARIABLES--------------------//
 
-const selectorElems = document.querySelectorAll('input[name="selector"]');
-let selectedDificulty = "easy";
+//Base Game Variables
 
-selectorElems.forEach((elem) => {
-  elem.addEventListener("click", () => {
-    selectedDificulty = elem.value;
-    console.log(selectedDificulty);
-    setDifficulty(selectedDificulty); 
-  });
-});
-
-
-//
-
-function setDifficulty(difficulty) {
-  const easyPairs = 6;
-  const mediumPairs = 8;
-  const hardPairs = 10;
-  let pairsToShow;
-
-  if (difficulty === 'easy') {
-    pairsToShow = easyPairs;
-  } else if (difficulty === 'medium') {
-    pairsToShow = mediumPairs;
-  } else if (difficulty === 'hard') {
-    pairsToShow = hardPairs;
-  }
-
-  const cardsDificulty = document.querySelectorAll('.memory-card');
-  cards.forEach((card, index) => {
-    if (index < pairsToShow * 2) {
-      card.style.display = '';
-    } else {
-      card.style.display = 'none';
-    }
-    
-    card.classList.remove("memory-card");
-    card.classList.remove("easy", "medium", "hard");
-    card.classList.add("memory-card", selectedDificulty);
-  });
-  
-}
-
-//BASE GAME LOGICS
-
-// Declare variables for cards, cards flipped, for locking the board
-// and for identifying both cards clicked
-
-const cards = document.querySelectorAll('.memory-card');
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
-// Add listener over the cards to be able to play with them
+//Dificulty Mode Variables
 
-cards.forEach(card => card.addEventListener('click', flipCard));
+let selectedDificulty = "easy";
+const easyPairs = 6;
+const mediumPairs = 8;
+const hardPairs = 10;
+let numOfPair;
 
-// This function includes the property flips to the cards so the effect
-// is added using the CSS
+//Variables for measuring metrics
+let matches = 0;
+let misses = 0;
+let tries = 0;
+let finalScore;
 
+// Add timer variables
+
+let startTime;
+let timerInterval;
+let endTime;
+let time = 0;
+let timer;
+let elapsedTime = 0;
+
+// Variables for game log
+let gameNumber = 0;
+let gameResults = [];
+
+//-------------------- HTML SELECTORS--------------------//
+
+//Selecting the cards
+let cards = document.querySelectorAll('.memory-card');
+
+//Selecting elements in the HTML for metrics
+const matchesSpan = document.getElementById('matches');
+const missesSpan = document.getElementById('misses');
+const triesSpan = document.getElementById('tries');
+
+//Pop up HTML selectors
+
+const overlay = document.querySelector(".overlay");
+const popup = document.querySelector(".popup");
+const startBtn = document.querySelector("#startBtn");
+const playAgainBtn = document.getElementById("playAgainBtn");
+const selectorElems = document.querySelectorAll('input[name="selector"]');
+const finalResultSpan = document.getElementById('playAgainMessage');
+
+//Timer selector
+const timerElement = document.getElementById("timer");
+
+//game log
+const gameLogDiv = document.getElementById("gameLog");
+
+
+//-------------------- FUNCTIONS--------------------//
+
+//BASE GAME
+
+//function to flip the cards
 function flipCard() {
   if (lockBoard) return;
   this.classList.add('flip');
@@ -73,16 +77,18 @@ function flipCard() {
   }
 };
 
-// Check if both cards are igual
-// True add matches & tries. Revome listener and change card's ids. Check finish game
-// False flip cards with a delay and lock the board. Add misses and tries
+//function to apply theflip funtion to all the cards
+function addFlipCardEventListeners() {
+  cards.forEach(card => card.addEventListener('click', flipCard));
+};
 
+//function to check the 2 cards selected are the same and what happen if true or false
 const checkMatch = () => {
   if (firstCard.dataset.framework === secondCard.dataset.framework) {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
     matches += 1;
-    matchesSpan.textContent = matches;
+    matchesSpan.textContent = `${matches} / ${numOfPair}`;
     tries += 1;
     triesSpan.textContent = tries;
     finishGame();
@@ -100,23 +106,27 @@ const checkMatch = () => {
   }
 };
 
-// To re-arrange the order randomly
+//function to randmoly reorder the position of the cards
 
 const shuffle = () => {
   cards.forEach(card => {
-    let randomPosition = Math.floor(Math.random() * 12);
+    let randomPosition = Math.floor(Math.random() * numOfPair * 2);
     card.style.order = randomPosition;
   });
 };
 
-shuffle();
 
-// Check if the game is complete
-// Launch all the process asociated with finishing the game
+
+//function that checks if the game is finished and trigger all the things associated to this phase
 
 const finishGame = () => {
-  if (matches === 6) {
-    stopTimer(); 
+  if (matches === numOfPair) {
+    stopTimer();
+    cards.forEach
+    (card => {
+      card.classList.remove('flip');
+      card.addEventListener('click', flipCard);
+    });
     document.getElementById('startBtn').style.display = 'none';
     document.getElementById('playAgainBtn').style.display = 'block';
     document.getElementById('playAgainMessage').style.display = 'block';
@@ -126,87 +136,18 @@ const finishGame = () => {
     endTime = new Date().getTime();
     let elapsedTime = calculateElapsedTime();
     const elapsedTimeFormatted = msToTime(elapsedTime);
-    let finalScore = Math.round(calculateFinalScore(elapsedTime,tries));
+    finalScore = Math.round(calculateFinalScore(elapsedTime, tries));
     gameNumber++
     finalResultSpan.textContent = `Your final result is misses: ${misses}, matches ${matches} y tries ${tries}. And the time is ${elapsedTimeFormatted}. Your final score is ${finalScore}/1000`;
-    gameResults.push({game: gameNumber, score: finalScore});
-    displayGameLog();
+    gameResults.push({ game: gameNumber, score: finalScore });
+    let resultString = `Game ${gameNumber}: Score ${finalScore}`
     console.log(gameResults);
-    
+    console.log(resultString);
+    displayGameLog(resultString);
   }
 };
 
-//METRICS
-
-//Variables for measuring metrics
-let matches = 0;
-let misses = 0;
-let tries = 0;
-
-//Selecting elements in the HTML for metrics
-const matchesSpan = document.getElementById('matches');
-const missesSpan = document.getElementById('misses');
-const triesSpan = document.getElementById('tries');
-
-//POP UP MENU
-//Pop up HTML selectors
-
-const overlay = document.querySelector(".overlay");
-const popup = document.querySelector(".popup");
-const startBtn = document.querySelector("#startBtn");
-const playAgainBtn = document.getElementById("playAgainBtn");
-overlay.style.display = "flex";
-popup.style.display = "flex";
-
-//Add interactivity to the Start button
-//Disbale the pop up and allow to play when clicked
-
-startBtn.addEventListener("click", () => {
-  overlay.style.display = "none";
-  popup.style.display = "none";
-  startTimer(); 
-});
-
-//Add interactivity to the Play Again Button
-//Disbale the pop up and allow to play again when clicked
-//Trigger to restart scores and board
-//HTML elements for pop finish game
-
-const finalResultSpan = document.getElementById('playAgainMessage');
-
-playAgainBtn.addEventListener("click", () => {
-  overlay.style.display = "none";
-  popup.style.display = "none"; 
-  matches = 0;
-  misses = 0;
-  tries = 0; 
-  startTimer();
-  matchesSpan.textContent = matches;
-  missesSpan.textContent = misses;
-  triesSpan.textContent = tries;
-  cards.forEach
-  (card => {
-    card.classList.remove('flip');
-    card.addEventListener('click', flipCard);
-  });
-  shuffle();
-});
-
-
-//TIMER
-
-// Add timer variables
-
-let startTime;
-let timerInterval;
-const timerElement = document.getElementById("timer");
-let endTime;
-let time = 0;
-let timer;
-let elapsedTime = 0;
-
 // Update the timer function
-
 function updateTimer() {
   const currentTime = new Date().getTime();
   const elapsedTime = currentTime - startTime;
@@ -216,72 +157,139 @@ function updateTimer() {
 };
 
 // Start the timer
-
 function startTimer() {
   startTime = new Date().getTime();
   timerInterval = setInterval(updateTimer, 1000);
 };
 
 // Stop the timer
-
 function stopTimer() {
   clearInterval(timerInterval);
 };
 
 //calculate the elapsed time
-
 function calculateElapsedTime() {
   const endTime = new Date().getTime();
   return endTime - startTime;
 };
 
 // Misilecons translator to minutes and seconds to show it in the finnal mesage
-
 function msToTime(duration) {
-  const milliseconds = parseInt((duration % 1000) / 100),
-        seconds = parseInt((duration / 1000) % 60),
-        minutes = parseInt((duration / (1000 * 60)) % 60);
-  return `${minutes}m ${seconds}s`;
-};
+  let seconds = Math.floor((duration / 1000) % 60),
+    minutes = Math.floor((duration / (1000 * 60)) % 60);
 
-//SCORING SYSTEM
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
 
-//Scoring system Weights and Variables
-const maxTime = 60000;
-const maxTries = 12;
-const minTries = 6;
-const weightTime = 0.5;
-const weightTries = 0.5;
-
-//Based 1000 scoring calculation
-function calculateFinalScore(elapsedTime, tries) {
-  let timeFactor = (maxTime - elapsedTime) / maxTime;
-  let triesFactor = 1 - ((tries - minTries) / (maxTries - minTries));
-  let finalScore = 1000 * (timeFactor * weightTime + triesFactor * weightTries);
-  return finalScore;
-};
-
-// GAME LOG SYSTES
-
-//Store the results
-let gameNumber = 0;
-
-//Html selector and empty array to store result
-const gameLog = document.getElementById('game-log');
-const gameResults = [];
-
-// Captures the Game number and Score and injected in the HTML
-function displayGameLog() {
-  gameLog.innerHTML = '';
-  gameResults.forEach((result, index) => {
-    const gameResultDiv = document.createElement('div');
-    gameResultDiv.classList.add('game-result');
-    gameResultDiv.innerHTML = `Game ${result.game}: Socore ${result.score} `;
-    gameLog.appendChild(gameResultDiv);
-  });
+  return minutes + ":" + seconds;
 }
-// Call the displayGameLog function initially to show any existing game results
-displayGameLog();
+
+// Calculate the final score
+function calculateFinalScore(elapsedTime, tries) {
+  const baseScore = 1000;
+  const timePenalty = elapsedTime * 0.1;
+  const triesPenalty = tries * 10;
+  const finalScore = baseScore - timePenalty - triesPenalty;
+  return finalScore > 0 ? finalScore : 0;
+}
+
+// Display game log
+function displayGameLog(message) {
+  const gameLog = document.getElementById("game-log");
+  const newLogEntry = document.createElement("p");
+  newLogEntry.textContent = message;
+  gameLog.appendChild(newLogEntry);
+}
+
+//Dificulty Level Functions
+const dificultyPairs = () => {
+  switch (selectedDificulty) {
+    case "easy":
+      numOfPair = easyPairs;
+      break;
+    case "medium":
+      numOfPair = mediumPairs;
+      break;
+    case "hard":
+      numOfPair = hardPairs;
+      break;
+  };
+}
+
+function setDifficulty(difficulty = 'easy') {
+  let pairsToShow;
+
+  if (difficulty === 'easy') {
+    pairsToShow = easyPairs;
+  } else if (difficulty === 'medium') {
+    pairsToShow = mediumPairs;
+  } else if (difficulty === 'hard') {
+    pairsToShow = hardPairs;
+  }
+
+  const cardsDificulty = document.querySelectorAll('.memory-card');
+  cardsDificulty.forEach((card, index) => {
+    // Remove existing difficulty classes
+    card.classList.remove('easy', 'medium', 'hard');
+
+    // Add the new difficulty class
+    card.classList.add(difficulty);
+
+    if (index < pairsToShow * 2) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  cards = document.querySelectorAll('.memory-card');
+  shuffle();
+  addFlipCardEventListeners();
+}
+
+
+
+//----------EVENT LISTENERS------//
+
+//Add interactivity to the Start button
+//Disbale the pop up and allow to play when clicked
+
+startBtn.addEventListener("click", () => {
+  overlay.style.display = "none";
+  popup.style.display = "none";
+  startTimer();
+});
+
+//Selected Dificuklty level
+selectorElems.forEach((elem) => {
+  elem.addEventListener("click", () => {
+    selectedDificulty = elem.value;
+    setDifficulty(selectedDificulty);
+    console.log(numOfPair);
+  });
+});
+
+//Play again button
+playAgainBtn.addEventListener("click", () => {
+  overlay.style.display = "none";
+  popup.style.display = "none";
+  matches = 0;
+  misses = 0;
+  tries = 0;
+  startTimer();
+  matchesSpan.textContent = matches;
+  missesSpan.textContent = misses;
+  triesSpan.textContent = tries;
+  shuffle();
+});
+
+
+//----------INITIATE THE GAME------//
+
+setDifficulty(selectedDificulty);
+dificultyPairs();
+shuffle();
+
+
 
 
 
