@@ -14,6 +14,10 @@ const mediumPairs = 8;
 const hardPairs = 10;
 let numOfPair;
 
+//Game mode
+
+let selectedGameMode ='solo';
+
 //Variables for measuring metrics
 let matches = 0;
 let misses = 0;
@@ -51,6 +55,7 @@ const startBtn = document.querySelector("#startBtn");
 const playAgainBtn = document.getElementById("playAgainBtn");
 const selectorElems = document.querySelectorAll('input[name="selector"]');
 const finalResultSpan = document.getElementById('playAgainMessage');
+const gameModeSelector = document.querySelectorAll('input[name="mode"]');
 
 //Timer selector
 const timerElement = document.getElementById("timer");
@@ -266,6 +271,15 @@ selectorElems.forEach((elem) => {
   });
 });
 
+//select game mode
+
+gameModeSelector.forEach((elem) => {
+  elem.addEventListener("click", () => {
+    selectedGameMode = elem.value;
+    console.log(selectedGameMode);
+  });
+});
+
 //Play again button
 playAgainBtn.addEventListener("click", () => {
   overlay.style.display = "none";
@@ -286,7 +300,6 @@ playAgainBtn.addEventListener("click", () => {
 setDifficulty(selectedDificulty);
 dificultyPairs();
 shuffle();
-
 
 
 
