@@ -76,11 +76,15 @@ body {
 /*Game log*/
 
 .game-log {
-  height: 300px;
+  height: 75%;
   width: 200px;
   background-color: #eee;
   margin-left: 20px;
   border: round;
+}
+
+.game-log p {
+  text-align: center;
 }
 
 /* El marcador */

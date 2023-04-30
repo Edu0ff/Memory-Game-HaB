@@ -140,7 +140,8 @@ const finishGame = () => {
     gameNumber++
     finalResultSpan.textContent = `Your final result is misses: ${misses}, matches ${matches} y tries ${tries}. And the time is ${elapsedTimeFormatted}. Your final score is ${finalScore}/1000`;
     gameResults.push({ game: gameNumber, score: finalScore });
-    let resultString = `Game ${gameNumber}: Score ${finalScore}`
+    let resultString = `Game ${gameNumber}: Score ${finalScore}`;
+    console.log("Final Score: ", finalScore);
     console.log(gameResults);
     console.log(resultString);
     displayGameLog(resultString);
@@ -187,8 +188,8 @@ function msToTime(duration) {
 // Calculate the final score
 function calculateFinalScore(elapsedTime, tries) {
   const baseScore = 1000;
-  const timePenalty = elapsedTime * 0.1;
-  const triesPenalty = tries * 10;
+  const timePenalty = (elapsedTime/1000)*10;
+  const triesPenalty = tries * 2;
   const finalScore = baseScore - timePenalty - triesPenalty;
   return finalScore > 0 ? finalScore : 0;
 }
@@ -229,11 +230,8 @@ function setDifficulty(difficulty = 'easy') {
 
   const cardsDificulty = document.querySelectorAll('.memory-card');
   cardsDificulty.forEach((card, index) => {
-    // Remove existing difficulty classes
-    card.classList.remove('easy', 'medium', 'hard');
-
-    // Add the new difficulty class
-    card.classList.add(difficulty);
+    card.classList.remove('easy', 'medium', 'hard'); // Remove existing difficulty classes
+    card.classList.add(difficulty);// Add the new difficulty class
 
     if (index < pairsToShow * 2) {
       card.style.display = '';
