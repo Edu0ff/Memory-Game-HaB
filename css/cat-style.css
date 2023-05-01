@@ -1,357 +1,369 @@
 /* reseting Values */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
-
-
 
 /* Header part */
-
-h1 {
-  color: #ffffff;
-  font-family: "Poppins"
-  font-size: 3rem;  
-  margin-top: 20px;
-  margin-bottom: 20px;
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    height: 3rem;
 }
-
-
+/* buttonMusic */
+.musicGame {
+    height: 100%;
+    border-radius: 5px;
+    background-color: #eee;
+    color: black;
+}
 
 /* Go back button */
 
 .back-btn {
-  border-radius: 5px;
-  color: #ffffff;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  display: inline-block;
-  padding: 10px 20px;
-  transition: all 300ms ease-in-out;
+    height: 100%;
+    border-radius: 5px;
+    color: #ffffff;
+    transition: all 300ms ease-in-out;
 }
 
 .back-btn:hover {
-  transform: scale(1.02);
+    transform: scale(1.02);
 }
-
 
 /* Body part */
 
 body {
-  min-height: 100vh;
-  background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/Pokemon_IMG/pokemon-background.jpeg');
-  background-repeat:no-repeat;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-weight: 600;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("/img/Pokemon_IMG/pokemon-background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 600;
 }
-
 
 /* Overlay */
 
 .overlay {
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  top: 0;
-  left: 0;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
-
-
 
 /* Pop ups */
 
 .popup {
-  width: 400px;
-  background-color: rgba(255,255,255,1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  padding: 20px;
-  text-align: center;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center; /* centrar los elementos verticalmente */
-  align-items: center;
-  flex-direction: column; /* establecer la dirección del flex en columna */
+    width: 400px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center; /* centrar los elementos verticalmente */
+    align-items: center;
+    flex-direction: column; /* establecer la dirección del flex en columna */
 }
 
 .popup-box {
-  width: 100%;
-  height: 33%;
-  margin: 0;
+    width: 100%;
+    height: 33%;
+    margin: 0;
 }
 
 .popup h2 {
-  font-size: 1.7rem;
-  margin-bottom: 10px;
+    font-size: 1.7rem;
+    margin-bottom: 10px;
 }
 
 .popup p {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .popup button {
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: all 300ms ease-in-out;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
 }
 
 .popup button:hover {
-  transform: scale(1.02);
+    transform: scale(1.02);
 }
 
 #startBtn {
-  background-color: rgba(255,255,255,0);
-  transition: all 300ms ease-in-out;
-  padding-top: 60px;
+    background-color: rgba(255, 255, 255, 0);
+    transition: all 300ms ease-in-out;
+    padding-top: 60px;
 }
 
 #playAgainBtn {
-  background-color: rgba(255,255,255,0);
-  width: 300px;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: all 300ms ease-in-out;
+    background-color: rgba(255, 255, 255, 0);
+    width: 300px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 300ms ease-in-out;
 }
-
-
 
 /*Game log*/
-
-.game-log {
-  height: 75%;
-  width: 200px;
-  background-color: #eee;
-  margin-left: 20px;
-  border: round;
-}
-
-.game-log p {
-  text-align: center;
-}
-
-
 
 /* Todo el juego */
 
 .memory-board {
-  height: 100%;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
-
-
 
 /* El marcador */
 
 .game-metrics {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 600px;
-  height: 65px;
-  margin-bottom: 15px;
-  font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 640px;
+    height: 65px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
 }
 
 #score {
-  color:#ffffff;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 500px;
-  gap: 5px;
-  padding-left: 10px;
-  border-radius: 10px;
-  background-color: rgba(0,0,0,0.5);  
+    color: #ffffff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+    gap: 5px;
+    padding-left: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .score-tries,
 .score-matches,
 .score-misses {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 20px;
-  gap: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    gap: 5px;
 }
 
-.score-matches{
-  color: green;
+.score-matches {
+    color: green;
 }
 
 .score-misses {
-  color: #FE0101;
+    color: #fe0101;
 }
 
 .image-score {
-  width: 40px;
+    width: 40px;
 }
 
 .image-button {
-  width: 200px;  
+    width: 200px;
 }
 
-#timer-container{
-  color: #ffffff;
-  border-radius: 50px;
-  width: 90px;
-  height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-color: rgba(0,0,0,0.5);
-  margin-bottom: 10px;
+#timer-container {
+    color: #ffffff;
+    border-radius: 50px;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
 }
 
 #timer {
-  color: #FFCB05;
-  font-size: 1rem;
-  font-family: "Poppins";
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-bottom: 10px;
+    color: #ffcb05;
+    font-size: 1rem;
+    font-family: "Poppins";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .image-timer {
-  width: 45px;
-  padding-top: 10px;
+    width: 45px;
+    padding-top: 10px;
 }
 
-.memory-card.shake{
-  animation: shake 0.35s ease-in-out;
+.memory-card.shake {
+    animation: shake 0.35s ease-in-out;
 }
 
 @keyframes shake {
-  0%, 100%{
-    transform: translateX(0);
-  }
-  20%{
-    transform: translateX(-13px);
-  }
-  40%{
-    transform: translateX(13px);
-  }
-  60%{
-    transform: translateX(-8px);
-  }
-  80%{
-    transform: translateX(8px);
-  }
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-13px);
+    }
+    40% {
+        transform: translateX(13px);
+    }
+    60% {
+        transform: translateX(-8px);
+    }
+    80% {
+        transform: translateX(8px);
+    }
 }
-
-
 
 /* El tablero */
 .memory-game {
-  width: 600px;
-  height: 600px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  perspective: 1000px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.7);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 640px;
+    height: 640px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: auto;
+    perspective: 1000px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
-
-
 
 /* Las carticas */
 .memory-card {
-  cursor: pointer;
-  position: relative;
-  list-style: none;
-  user-select: none;
-  height: calc(100% / 4 - 10px);
-  width: calc(100% / 4 - 10px);
-  transform: scale(1);
-  transform-style: preserve-3d;
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: center;
-  align-items: center;  
+    cursor: pointer;
+    position: relative;
+    list-style: none;
+    user-select: none;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(25% - 10px);
+    height: calc(20% - 10px);
+    margin: 5px;
+    transition: transform 0.5s;
 }
 
 .memory-card:active {
-  transform: scale(0.97);
-  transition: transform 0.2s;
+    transform: scale(0.97);
+    transition: transform 0.2s;
 }
 
 .memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+/* .front-face {
   transform: rotateY(180deg);
 }
 
-
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 255, 0);
+  backface-visibility: hidden;
+  
+} */
 
 .back-face {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  border-radius: 100px;
-  backface-visibility: hidden;
-  background-color: rgba(0, 0, 255, 0);
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    backface-visibility: hidden;
+    background-color: rgba(0, 0, 255, 0);
 }
 
 .front-face {
-  transform: rotateY(180deg);
-  background-size: 200%;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: absolute;
-  width: 135px;
-  height: 135px;
-  border-radius: 100px;
-  backface-visibility: hidden;
-  background-color: rgba(0, 0, 255, 0);
+    transform: rotateY(180deg);
+    background-size: 200%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 135px;
+    height: 135px;
+    border-radius: 100px;
+    backface-visibility: hidden;
+    background-color: rgba(0, 0, 255, 0);
 }
 
-
-.card.shake{
-  animation: shake 0.35s ease-in-out;
+.card.shake {
+    animation: shake 0.35s ease-in-out;
 }
 @keyframes shake {
-  0%, 100%{
-    transform: translateX(0);
-  }
-  20%{
-    transform: translateX(-13px);
-  }
-  40%{
-    transform: translateX(13px);
-  }
-  60%{
-    transform: translateX(-8px);
-  }
-  80%{
-    transform: translateX(8px);
-  }
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-13px);
+    }
+    40% {
+        transform: translateX(13px);
+    }
+    60% {
+        transform: translateX(-8px);
+    }
+    80% {
+        transform: translateX(8px);
+    }
+}
+
+/* footer */
+.game-results {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 640px;
+    height: 80px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.game-log {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    background-color: #eee;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }

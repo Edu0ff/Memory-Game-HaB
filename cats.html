@@ -13,8 +13,12 @@
 <body>
   <header>
     <a href="index.html" class="back-btn"><img src="/img/Pokemon_IMG/button_back.svg" class="image-button"></a>
-    <h1 class="title"></h1>
+    
+    <audio id="myAudio" src="audio/Pokemon/pokemon-opening.mp3"></audio>
+    <button class="musicGame"onclick="playPause()">Play/Pause</button>
+    
   </header>
+  
 
   <!-- Entorno completo -->
   <section class="memory-board">
@@ -24,7 +28,8 @@
 
 
         <div class="popup-box">
-          <h2>Welcome to Pokemon Memory!</h2>
+          <h2 id="welcomeText">Welcome to Pokemon Memory!</h2>
+          <h2 id="finishText" style="display: none">Your brain is sharper than a Pikachu's Thunderbolt! </h2>
           <p id="startMessage">Ready to catch 'em all?<br>Choose your level:</p>
           <label>
             <input type="radio" name="selector" value="easy" checked />
@@ -48,8 +53,8 @@
         </div>
         <p id="playAgainMessage" style="display: none"></p>
         <button id="startBtn"><img src="/img/Pokemon_IMG/button_start.svg" class="image-button"></button>
-        <!-- Play again button here -->
-        <!-- Texto para el h2: Your brain is sharper than a Pikachu's Thunderbolt!-->
+        
+       
         <button id="playAgainBtn" style="display: none;"><img src="/img/Pokemon_IMG/button_play_again.svg"
             class="image-button-again"></button></button>
       </div>
@@ -80,7 +85,7 @@
         </div>
       </div>
     </div>
-    <div id="game-log"></div>
+    
     <div class="memory-game">
       <!-- Pair 1 -->
       <div class="memory-card" data-framework="catAttack">
@@ -182,10 +187,14 @@
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
     </div>
-    <div id="game-log" class="game-log">
-      <p>Game Results</p>
     </div>
+    
   </section>
+  <footer class="game-results">
+    <div id="game-log" class="game-log">
+      <p>Game Results:</p>
+    </div>
+  </footer>
   <script src="js/cats.js"></script>
 </body>
 

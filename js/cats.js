@@ -132,6 +132,8 @@ const finishGame = () => {
       card.classList.remove('flip');
       card.addEventListener('click', flipCard);
     });
+    document.getElementById('finishText').style.display = '';
+    document.getElementById('welcomeText').style.display = 'none';
     document.getElementById('startBtn').style.display = 'none';
     document.getElementById('playAgainBtn').style.display = 'block';
     document.getElementById('playAgainMessage').style.display = 'block';
@@ -301,7 +303,17 @@ setDifficulty(selectedDificulty);
 dificultyPairs();
 shuffle();
 
+// musicgame
 
 
+let myAudio = document.getElementById("myAudio");
+
+function playPause() {
+  if (myAudio.paused) {
+    myAudio.play();
+  } else {
+    myAudio.pause();
+  }
+}
 
 

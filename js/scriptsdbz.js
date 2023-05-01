@@ -5,21 +5,9 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
-<<<<<<< HEAD
-const miBoton = document.getElementById("botonMusic");
-
-miBoton.addEventListener("click", function() {
-  const music = new Audio ("audio/audio-dbz/Goodbye Warriors.mp3");
-  music.play ("audio/audio-dbz/Goodbye Warriors.mp3");
-  music.loop = true;
-  
-});
-
-=======
 // const music = new Audio ("./audio-dbz/battle.mp3");
 // music.play("./audio.dbz/battle.mp3");
 // music.loop = true;
->>>>>>> b3ad7f13bb5adde043aeb94cee13eb21d6c37577
 
 function flipCard() {
   
@@ -40,21 +28,12 @@ function flipCard() {
   // insertar musica para el acierto y el fallo de parejas
   if (firstCard.dataset.framework === secondCard.dataset.framework) {
     
-<<<<<<< HEAD
-    const musicAcierto = new Audio ("audio/audio-dbz/radar-dragonball.mp3");
-    musicAcierto.play("audio/audio/radar-dragonball.mp3");
-    musicAcierto.loop = false;
-  } else {
-    const musicFallo = new Audio ("audio/audio-dbz/ball-dragon-gt-jump.mp3");
-    musicFallo.play("audio/audio/radar-dragonball.mp3");
-=======
     const musicAcierto = new Audio ("./audio-dbz/radar-dragonball.mp3");
     musicAcierto.play("./audio/radar-dragonball.mp3");
     musicAcierto.loop = false;
   } else {
     const musicFallo = new Audio ("./audio-dbz/ball-dragon-gt-jump.mp3");
     musicFallo.play("./audio/radar-dragonball.mp3");
->>>>>>> b3ad7f13bb5adde043aeb94cee13eb21d6c37577
     musicFallo.loop = false;
   }
 
@@ -69,14 +48,7 @@ function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
   isMatch ? disableCards() : unflipCards();
   
-<<<<<<< HEAD
-  // if(aciertos === 8) {
-  //   cards.forEach(card => card.addEventListener('click', flipCard));
-  //   console.log(`terminado`)
-  // }
-=======
   
->>>>>>> b3ad7f13bb5adde043aeb94cee13eb21d6c37577
 }
 
 function disableCards() {
@@ -84,11 +56,7 @@ function disableCards() {
   secondCard.removeEventListener('click', flipCard);
   aciertos += 1;
   intentos += 1;
-<<<<<<< HEAD
-  scoresSpan.textContent = `Aciertos: ${aciertos} Fallos: ${fallos} Intentos: ${intentos}`
-=======
   scoresSpan.textContent = `Aciertos ${aciertos} Fallos ${fallos} Intentos ${intentos}`
->>>>>>> b3ad7f13bb5adde043aeb94cee13eb21d6c37577
   
   resetBoard();
 }
@@ -97,11 +65,7 @@ function unflipCards() {
   lockBoard = true;
   fallos += 1;
   intentos += 1;
-<<<<<<< HEAD
-  scoresSpan.textContent = `Aciertos: ${aciertos} Fallos: ${fallos} Intentos: ${intentos}`
-=======
   scoresSpan.textContent = `Aciertos ${aciertos} Fallos ${fallos} Intentos ${intentos}`
->>>>>>> b3ad7f13bb5adde043aeb94cee13eb21d6c37577
   
   setTimeout(() => {
     firstCard.classList.remove('flip');
@@ -114,10 +78,6 @@ function unflipCards() {
 function resetBoard() {
   [hasFlippedCard, lockBoard] = [false, false];
   [firstCard, secondCard] = [null, null];
-<<<<<<< HEAD
-  
-=======
->>>>>>> b3ad7f13bb5adde043aeb94cee13eb21d6c37577
 }
 
 
@@ -126,85 +86,19 @@ function resetBoard() {
   cards.forEach(card => {
     let ramdomPos = Math.floor(Math.random() * 16);
     card.style.order = ramdomPos;
-<<<<<<< HEAD
-   
-=======
->>>>>>> b3ad7f13bb5adde043aeb94cee13eb21d6c37577
   });
 })();
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b3ad7f13bb5adde043aeb94cee13eb21d6c37577
 cards.forEach(card => card.addEventListener('click', flipCard));
 
 
 
 // contador tiempo
 
-<<<<<<< HEAD
-let segundos = 0;
-let minutos = 0;
-
-
-function contadorTiempo() {
-  segundos++;
-  if (segundos == 60) {
-    segundos = 0;
-    minutos++;
-  }
-  if (minutos == 60) {
-    minutos = 0;
-    horas++;
-  }
-  if (segundos == 90) {
-    alert(`Freezer Wins!`)
-  }
-  document.getElementById("contador").innerHTML = minutos + ":" + segundos;
-}
-
-setInterval(contadorTiempo, 1000);
-
-
-// reseteo de cartas
-
-
-function checkForMatch() {
-  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-  isMatch ? disableCards() : unflipCards();
-  
-  if(aciertos === 8) {
-    resetGame();
-  }
-}
-
-function resetGame() {
-  cards.forEach(card => card.removeEventListener('click', flipCard));
-  setTimeout(() => {
-    cards.forEach(card => {
-      card.classList.remove('flip');
-      card.addEventListener('click', flipCard);
-    });
-    shuffleCards();
-    aciertos = 0;
-    fallos = 0;
-    intentos = 0;
-    segundos = 0;
-    minutos = 0;
-    document.getElementById("contador").innerHTML = minutos + ":" + segundos;
-    scoresSpan.textContent = `Aciertos: ${aciertos} Fallos: ${fallos} Intentos: ${intentos}`
-  }, 2000);
-}
-
-
-// reseteo de contadores
-=======
 
 
 
->>>>>>> b3ad7f13bb5adde043aeb94cee13eb21d6c37577
 
 
 

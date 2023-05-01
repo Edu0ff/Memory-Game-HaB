@@ -1,84 +1,89 @@
 /* Set up the page layout */
 body {
-  margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #ebebeb;
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ebebeb;
 }
 
 header {
-  background-color: #8c51ad;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
+    background-color: #8c51ad;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
 }
 
 h1 {
-  margin: 0;
-  font-size: 48px;
-  text-shadow: 2px 2px #333;
+    margin: 0;
+    font-size: 48px;
+    text-shadow: 2px 2px #333;
 }
 
 nav {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 ul {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
 }
 
 li {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  position: relative;
-  transition: transform 0.3s ease;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
 }
 
 li:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.3);
 }
 
 a {
-  color: #333;
-  text-decoration: none;
+    color: #333;
+    text-decoration: none;
 }
 
 h2 {
-  margin: 20px;
-  font-size: 36px;
+    margin: 20px;
+    font-size: 36px;
 }
 
 img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  max-height: 250px;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    max-height: 250px;
 }
 
 /* Vaporwave style */
 header {
-  background-color: #8c51ad;
-  background-image: linear-gradient(to bottom right, #8c51ad, #ff6ec7, #2ee2c9);
+    background-color: #8c51ad;
+    background-image: linear-gradient(
+        to bottom right,
+        #8c51ad,
+        #ff6ec7,
+        #2ee2c9
+    );
 }
 
 li {
-  filter: brightness(90%) saturate(110%) hue-rotate(15deg) contrast(85%);
+    filter: brightness(90%) saturate(110%) hue-rotate(15deg) contrast(85%);
 }
 
 h2 {
-  color: #f2c2ff;
-  text-shadow: 2px 2px #111;
+    color: #f2c2ff;
+    text-shadow: 2px 2px #111;
 }
 
 a:hover {
-  color: #8c51ad;
-  text-shadow: 2px 2px #f2c2ff;
+    color: #8c51ad;
+    text-shadow: 2px 2px #f2c2ff;
 }
