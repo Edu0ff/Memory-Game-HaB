@@ -162,3 +162,7 @@ function resetGame() {
 }
 
 
+// reseteo de contadores
+
+
+
