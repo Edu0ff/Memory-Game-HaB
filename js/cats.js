@@ -1,13 +1,11 @@
 //-------------------- VARIABLES--------------------//
 
-//Base Game Variables
-
+//board and Cards Variables
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
 //Dificulty Mode Variables
-
 let selectedDificulty = "easy";
 const easyPairs = 6;
 const mediumPairs = 8;
@@ -15,17 +13,23 @@ const hardPairs = 10;
 let numOfPair;
 
 //Game mode
-
 let selectedGameMode ='solo';
 
-//Variables for measuring metrics
+//ai mode variabnles
+let aiMatches = 0; 
+let humaMatches = 0;
+let turn = 'human';
+let aiEnabled = false;
+let firstRandomCard;
+let secondRandomCard;
+
+//Variables for Solo mode
 let matches = 0;
 let misses = 0;
 let tries = 0;
 let finalScore;
 
 // Add timer variables
-
 let startTime;
 let timerInterval;
 let endTime;
@@ -41,6 +45,7 @@ let gameResults = [];
 
 //Selecting the cards
 let cards = document.querySelectorAll('.memory-card');
+let availableCards = document.querySelectorAll('.memory-card:not([style*="display:none"])');
 
 //Selecting elements in the HTML for metrics
 const matchesSpan = document.getElementById('matches');
@@ -48,7 +53,6 @@ const missesSpan = document.getElementById('misses');
 const triesSpan = document.getElementById('tries');
 
 //Pop up HTML selectors
-
 const overlay = document.querySelector(".overlay");
 const popup = document.querySelector(".popup");
 const startBtn = document.querySelector("#startBtn");
@@ -66,11 +70,11 @@ const gameLogDiv = document.getElementById("gameLog");
 
 //-------------------- FUNCTIONS--------------------//
 
-//BASE GAME
+//SOLO MODE FUNCTIONS
 
 //function to flip the cards
 function flipCard() {
-  if (lockBoard) return;
+  if (lockBoard || (selectedGameMode === 'ai')) return;
   this.classList.add('flip');
   if (!hasFlippedCard) {
     hasFlippedCard = true;
@@ -82,7 +86,7 @@ function flipCard() {
   }
 };
 
-//function to apply theflip funtion to all the cards
+//function to apply the flip funtion to all the cards
 function addFlipCardEventListeners() {
   cards.forEach(card => card.addEventListener('click', flipCard));
 };
@@ -111,8 +115,8 @@ const checkMatch = () => {
   }
 };
 
-//function to randmoly reorder the position of the cards
 
+//function to randmoly reorder the position of the cards
 const shuffle = () => {
   cards.forEach(card => {
     let randomPosition = Math.floor(Math.random() * numOfPair * 2);
@@ -120,10 +124,7 @@ const shuffle = () => {
   });
 };
 
-
-
 //function that checks if the game is finished and trigger all the things associated to this phase
-
 const finishGame = () => {
   if (matches === numOfPair) {
     stopTimer();
@@ -146,12 +147,11 @@ const finishGame = () => {
     finalResultSpan.textContent = `Your final result is misses: ${misses}, matches ${matches} y tries ${tries}. And the time is ${elapsedTimeFormatted}. Your final score is ${finalScore}/1000`;
     gameResults.push({ game: gameNumber, score: finalScore });
     let resultString = `Game ${gameNumber}: Score ${finalScore}`;
-    console.log("Final Score: ", finalScore);
-    console.log(gameResults);
-    console.log(resultString);
     displayGameLog(resultString);
   }
 };
+
+//TIMER FUNCTIONS
 
 // Update the timer function
 function updateTimer() {
@@ -190,6 +190,8 @@ function msToTime(duration) {
   return minutes + ":" + seconds;
 }
 
+//SCORING SYTEM
+
 // Calculate the final score
 function calculateFinalScore(elapsedTime, tries) {
   const baseScore = 1000;
@@ -207,7 +209,9 @@ function displayGameLog(message) {
   gameLog.appendChild(newLogEntry);
 }
 
-//Dificulty Level Functions
+//DIFICULTY FUNCTIONS
+
+//translate dificulty to number of pairs
 const dificultyPairs = () => {
   switch (selectedDificulty) {
     case "easy":
@@ -222,15 +226,15 @@ const dificultyPairs = () => {
   };
 }
 
+//apply selected dificulty
 function setDifficulty(difficulty = 'easy') {
-  let pairsToShow;
 
   if (difficulty === 'easy') {
-    pairsToShow = easyPairs;
+    numOfPair = easyPairs;
   } else if (difficulty === 'medium') {
-    pairsToShow = mediumPairs;
+    numOfPair = mediumPairs;
   } else if (difficulty === 'hard') {
-    pairsToShow = hardPairs;
+    numOfPair = hardPairs;
   }
 
   const cardsDificulty = document.querySelectorAll('.memory-card');
@@ -238,20 +242,179 @@ function setDifficulty(difficulty = 'easy') {
     card.classList.remove('easy', 'medium', 'hard'); // Remove existing difficulty classes
     card.classList.add(difficulty);// Add the new difficulty class
 
-    if (index < pairsToShow * 2) {
+    if (index < numOfPair * 2) {
       card.style.display = '';
     } else {
       card.style.display = 'none';
     }
   });
   cards = document.querySelectorAll('.memory-card');
-  shuffle();
-  addFlipCardEventListeners();
 }
 
 
+//GAME STATES
+
+
+
+
+//AI MODE
+//ai functions 
+
+//ad listener for ai mode
+
+// AI-specific event listeners
+function addAiFlipCardEventListeners() {
+  cards.forEach(card => card.addEventListener('click', aiflipCard));
+  console.log('adding aiFipcard');
+}
+
+// AI-specific flipCard function
+function aiflipCard() {
+  if (lockBoard) return;
+  this.classList.add('flip');
+  if (!hasFlippedCard) {
+    hasFlippedCard = true;
+    firstCard = this;
+  } else {
+    hasFlippedCard = false;
+    secondCard = this;
+    aiCheckMatch();
+  }
+};
+
+// AI-specific checkMatch function
+const aiCheckMatch = () => {
+  if (turn === 'human') {
+    if (firstCard.dataset.framework === secondCard.dataset.framework) {
+      console.log('iguales humano');
+      firstCard.removeEventListener('click', aiflipCard);
+      secondCard.removeEventListener('click', aiflipCard);
+      humaMatches += 1;
+      console.log('iguales humano');
+      console.log(humaMatches);
+      console.log(numOfPair /2);
+      aiFinishGame();
+    } else {
+      lockBoard = true;
+      setTimeout(() => {
+        firstCard.classList.remove('flip');
+        secondCard.classList.remove('flip');
+        lockBoard = false;
+        console.log('diferentes humano');
+        console.log(humaMatches);
+        console.log(numOfPair /2);
+      }, 1500);
+    }
+    turn = 'ai'
+    setTimeout(() => {
+      aiTurn()
+    }, 1500);
+   } else { 
+    if (firstRandomCard.dataset.framework === secondRandomCard.dataset.framework) {
+    console.log('iguales ia');
+    firstRandomCard.removeEventListener('click', aiflipCard);
+    secondRandomCard.removeEventListener('click', aiflipCard);
+    aiMatches += 1;
+    console.log('iguales ia');
+    console.log(aiMatches);
+    console.log(numOfPair /2);
+    aiFinishGame();
+  } else {
+    lockBoard = true;
+    setTimeout(() => {
+      firstRandomCard.classList.remove('flip');
+      secondRandomCard.classList.remove('flip');
+      lockBoard = false;
+      console.log('diferentes ia');
+      console.log(humaMatches);
+      console.log(numOfPair /2);
+    }, 1500);
+  }
+  turn = 'human'
+   }
+ }
+ 
+//random selection for the ai
+
+function selectRandomCard(cards) {
+  const randomIndex = Math.floor(Math.random() * availableCards.length);
+  return availableCards[randomIndex];
+}
+
+//ai turn
+
+
+const aiTurn = () => {
+  if (turn === "human") {
+    return
+  } else {
+    const unflippedCards = Array.from(availableCards).filter(card => !card.classList.contains('flip'));
+    console.log(unflippedCards);
+    firstRandomCard = selectRandomCard(unflippedCards);
+    console.log(firstRandomCard);
+    secondRandomCard = selectRandomCard(unflippedCards.filter(card => card !== firstRandomCard));
+    console.log(secondRandomCard);
+    firstRandomCard.classList.add('flip');
+    secondRandomCard.classList.add('flip');
+    setTimeout(() => {
+      aiCheckMatch();
+    }, 1500);
+  }
+  
+};
+
+// ai finish game
+
+const aiFinishGame = () => {
+  if (humaMatches = numOfPair / 2 ){
+    stopTimer();
+    cards.forEach
+    (card => {
+      card.classList.remove('flip');
+      card.addEventListener('click', aiflipCard);
+    });
+    document.getElementById('startBtn').style.display = 'none';
+    document.getElementById('playAgainBtn').style.display = 'block';
+    document.getElementById('playAgainMessage').style.display = 'block';
+    document.getElementById('startMessage').style.display = 'none';
+    overlay.style.display = 'flex';
+    popup.style.display = 'flex';
+    finalResultSpan.textContent = `You Won the Machine`;
+  } else if (aiMatches = numOfPair / 2 ) {
+    stopTimer();
+    cards.forEach
+    (card => {
+      card.classList.remove('flip');
+      card.addEventListener('click', aiflipCard);
+    });
+    document.getElementById('startBtn').style.display = 'none';
+    document.getElementById('playAgainBtn').style.display = 'block';
+    document.getElementById('playAgainMessage').style.display = 'block';
+    document.getElementById('startMessage').style.display = 'none';
+    overlay.style.display = 'flex';
+    popup.style.display = 'flex';
+    finalResultSpan.textContent = `You lose againts Machine`;
+  }
+  return
+}
+
 
 //----------EVENT LISTENERS------//
+
+// game initation 
+
+const initGame = () => {
+  if (selectedGameMode === 'solo') {
+    setDifficulty(selectedDificulty);
+    shuffle();
+    addFlipCardEventListeners();
+  } else {
+    setDifficulty(selectedDificulty);
+    shuffle();
+    addAiFlipCardEventListeners();
+  };
+};
+
 
 //Add interactivity to the Start button
 //Disbale the pop up and allow to play when clicked
@@ -260,6 +423,7 @@ startBtn.addEventListener("click", () => {
   overlay.style.display = "none";
   popup.style.display = "none";
   startTimer();
+  initGame();
 });
 
 //Selected Dificuklty level
@@ -267,16 +431,13 @@ selectorElems.forEach((elem) => {
   elem.addEventListener("click", () => {
     selectedDificulty = elem.value;
     setDifficulty(selectedDificulty);
-    console.log(numOfPair);
   });
 });
 
 //select game mode
-
 gameModeSelector.forEach((elem) => {
   elem.addEventListener("click", () => {
     selectedGameMode = elem.value;
-    console.log(selectedGameMode);
   });
 });
 
@@ -297,9 +458,9 @@ playAgainBtn.addEventListener("click", () => {
 
 //----------INITIATE THE GAME------//
 
-setDifficulty(selectedDificulty);
-dificultyPairs();
-shuffle();
+
+initGame();
+
 
 
 
