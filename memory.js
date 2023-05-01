@@ -24,6 +24,11 @@ function flipCard({ target: clickedCard }) {
   }
 }
 
+cardOne.removeEventListener("click", flipCard);
+    cardTwo.removeEventListener("click", flipCard);
+    cardOne = cardTwo = "";
+    disableDeck = false;
+
 function matchCards(img1, img2) {
   if (img1 !== img2) {
     const failSound = new Audio("./audio/eevee-starter.mp3");
