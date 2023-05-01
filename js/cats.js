@@ -48,9 +48,13 @@ let cards = document.querySelectorAll('.memory-card');
 let availableCards = document.querySelectorAll('.memory-card:not(.no)');
 
 //Selecting elements in the HTML for metrics
+const score = document.getElementById('score');
+const vs = document.getElementById('vs');
 const matchesSpan = document.getElementById('matches');
 const missesSpan = document.getElementById('misses');
 const triesSpan = document.getElementById('tries');
+const humaMatchesSpan = document.getElementById('huma-matches');
+const aiMatchesSpan = document.getElementById('aiMatches');
 
 //Pop up HTML selectors
 const overlay = document.querySelector(".overlay");
@@ -256,9 +260,6 @@ function setDifficulty(difficulty = 'easy') {
 
 //GAME STATES
 
-
-
-
 //AI MODE
 //ai functions 
 
@@ -292,6 +293,8 @@ const aiCheckMatch = () => {
       firstCard.removeEventListener('click', aiflipCard);
       secondCard.removeEventListener('click', aiflipCard);
       humaMatches += 1;
+ 
+      humaMatchesSpan.textContent = `${humaMatches} / ${Math.floor(numOfPair / 2)}`;
       console.log('iguales humano');
       console.log(humaMatches);
       console.log(numOfPair /2);
@@ -317,6 +320,7 @@ const aiCheckMatch = () => {
     firstCard.removeEventListener('click', aiflipCard);
     secondCard.removeEventListener('click', aiflipCard);
     aiMatches += 1;
+    aiMatchesSpan.textContent = `${aiMatches} / ${numOfPair / 2}`;
     console.log('iguales ia');
     console.log(aiMatches);
     console.log(numOfPair /2);
@@ -332,7 +336,7 @@ const aiCheckMatch = () => {
       console.log(numOfPair /2);
     }, 1500);
   }
-  turn = 'human'
+  turn = 'human';
    }
  }
  
@@ -371,6 +375,7 @@ const aiTurn = () => {
 
 const aiFinishGame = () => {
   if (humaMatches === numOfPair / 2 ){
+    turn = 'human';
     stopTimer();
     cards.forEach
     (card => {
@@ -412,10 +417,14 @@ const initGame = () => {
     setDifficulty(selectedDificulty);
     shuffle();
     addFlipCardEventListeners();
+    score.style.display = '';
+    vs.style.display = 'none';
   } else {
     setDifficulty(selectedDificulty);
     shuffle();
     addAiFlipCardEventListeners();
+    score.style.display = 'none';
+    vs.style.display = '';
   };
 };
 
@@ -426,6 +435,16 @@ const initGame = () => {
 startBtn.addEventListener("click", () => {
   overlay.style.display = "none";
   popup.style.display = "none";
+  matches = 0;
+  misses = 0;
+  tries = 0;
+  aiMatches = 0; 
+  humaMatches = 0;
+  matchesSpan.textContent = `${matches} / ${numOfPair}`;
+  missesSpan.textContent = misses;
+  triesSpan.textContent = tries;
+  humaMatchesSpan.textContent = `${humaMatches} / ${numOfPair / 2}`;
+  aiMatchesSpan.textContent = `${aiMatches} / ${numOfPair / 2}`;
   startTimer();
   initGame();
 });
@@ -455,9 +474,11 @@ playAgainBtn.addEventListener("click", () => {
   aiMatches = 0; 
   humaMatches = 0;
   startTimer();
-  matchesSpan.textContent = matches;
+  matchesSpan.textContent = `${matches} / ${numOfPair}`;
   missesSpan.textContent = misses;
   triesSpan.textContent = tries;
+  humaMatchesSpan.textContent = `${humaMatches} / ${Math.floor(numOfPair / 2)}`;
+  aiMatchesSpan.textContent = `${aiMatches} / ${numOfPair / 2}`;
   shuffle();
 });
 
