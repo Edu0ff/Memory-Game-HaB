@@ -45,7 +45,7 @@ let gameResults = [];
 
 //Selecting the cards
 let cards = document.querySelectorAll('.memory-card');
-let availableCards = document.querySelectorAll('.memory-card:not([style*="display:none"])');
+let availableCards = document.querySelectorAll('.memory-card:not(.no)');
 
 //Selecting elements in the HTML for metrics
 const matchesSpan = document.getElementById('matches');
@@ -244,8 +244,10 @@ function setDifficulty(difficulty = 'easy') {
 
     if (index < numOfPair * 2) {
       card.style.display = '';
+      card.classList.remove('no');
     } else {
       card.style.display = 'none';
+      card.classList.add('no');
     }
   });
   cards = document.querySelectorAll('.memory-card');
@@ -308,12 +310,12 @@ const aiCheckMatch = () => {
     turn = 'ai'
     setTimeout(() => {
       aiTurn()
-    }, 1500);
+    }, 1700);
    } else { 
-    if (firstRandomCard.dataset.framework === secondRandomCard.dataset.framework) {
+    if (firstCard.dataset.framework === secondCard.dataset.framework) {
     console.log('iguales ia');
-    firstRandomCard.removeEventListener('click', aiflipCard);
-    secondRandomCard.removeEventListener('click', aiflipCard);
+    firstCard.removeEventListener('click', aiflipCard);
+    secondCard.removeEventListener('click', aiflipCard);
     aiMatches += 1;
     console.log('iguales ia');
     console.log(aiMatches);
@@ -322,8 +324,8 @@ const aiCheckMatch = () => {
   } else {
     lockBoard = true;
     setTimeout(() => {
-      firstRandomCard.classList.remove('flip');
-      secondRandomCard.classList.remove('flip');
+      firstCard.classList.remove('flip');
+      secondCard.classList.remove('flip');
       lockBoard = false;
       console.log('diferentes ia');
       console.log(humaMatches);
@@ -336,9 +338,9 @@ const aiCheckMatch = () => {
  
 //random selection for the ai
 
-function selectRandomCard(cards) {
-  const randomIndex = Math.floor(Math.random() * availableCards.length);
-  return availableCards[randomIndex];
+function selectRandomCard(unflippedCards) {
+  const randomIndex = Math.floor(Math.random() * unflippedCards.length);
+  return unflippedCards[randomIndex];
 }
 
 //ai turn
@@ -346,27 +348,29 @@ function selectRandomCard(cards) {
 
 const aiTurn = () => {
   if (turn === "human") {
-    return
+    return;
   } else {
+    let availableCards = document.querySelectorAll('.memory-card:not(.no)');
+    console.log(availableCards);
     const unflippedCards = Array.from(availableCards).filter(card => !card.classList.contains('flip'));
     console.log(unflippedCards);
-    firstRandomCard = selectRandomCard(unflippedCards);
-    console.log(firstRandomCard);
-    secondRandomCard = selectRandomCard(unflippedCards.filter(card => card !== firstRandomCard));
-    console.log(secondRandomCard);
-    firstRandomCard.classList.add('flip');
-    secondRandomCard.classList.add('flip');
+    firstCard = selectRandomCard(unflippedCards);
+    console.log(firstCard);
+    secondCard = selectRandomCard(unflippedCards.filter(card => card !== firstCard));
+    console.log(secondCard);
+    firstCard.classList.add('flip');
+    secondCard.classList.add('flip');
     setTimeout(() => {
       aiCheckMatch();
     }, 1500);
   }
-  
 };
+
 
 // ai finish game
 
 const aiFinishGame = () => {
-  if (humaMatches = numOfPair / 2 ){
+  if (humaMatches === numOfPair / 2 ){
     stopTimer();
     cards.forEach
     (card => {
@@ -380,7 +384,7 @@ const aiFinishGame = () => {
     overlay.style.display = 'flex';
     popup.style.display = 'flex';
     finalResultSpan.textContent = `You Won the Machine`;
-  } else if (aiMatches = numOfPair / 2 ) {
+  } else if (aiMatches === numOfPair / 2 ) {
     stopTimer();
     cards.forEach
     (card => {
@@ -448,6 +452,8 @@ playAgainBtn.addEventListener("click", () => {
   matches = 0;
   misses = 0;
   tries = 0;
+  aiMatches = 0; 
+  humaMatches = 0;
   startTimer();
   matchesSpan.textContent = matches;
   missesSpan.textContent = misses;
@@ -460,7 +466,6 @@ playAgainBtn.addEventListener("click", () => {
 
 
 initGame();
-
 
 
 
