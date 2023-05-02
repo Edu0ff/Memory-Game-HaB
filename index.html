@@ -1,43 +1,69 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/index.css" />
-    <title>Memory Game Portal</title>
-  </head>
-  <body>
-    <header>
-      <h1>Welcome to Memory Portal</h1>
-    </header>
-    <nav>
-      <ul>
-        <li>
-          <a href="cats.html" target="_blank">
-            <h2>Retro Wave Cat Challenge</h2>
-            <img src="img/portal/nian-cat.gif" alt="Retro Wave Cat Challenge">
-          </a>
-        </li>
-        <li>
-          <a href="dgb.html" target="_blank">
-            <h2>Daft Punk Challenge</h2>
-            <img src="img/portal/dragon-ball-game.jpg" alt="Daft Punk Challenge">
-          </a>
-        </li>
-        <li>
-          <a href="ac.html" target="_blank">
-            <h2>Vapor Wave Challenge</h2>
-            <img src="img/portal/animal-crossing-game.webp" alt="Vapor Wave Challenge">
-          </a>
-        </li>
-        <li>
-          <a href="miguel.html" target="_blank">
-            <h2>Miguel Placeholder</h2>
-            <img src="img/eva_gameportal.jpeg" alt="Evangelion">
-          </a>
-        </li>    
-        </body>
 
-        </html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/index.css" />
+  <link rel="icon" href="/img/index/cartaIcon.png" type="card.png" />
+
+  <title>Memory Game Portal</title>
+</head>
+
+<body>
+
+  <header>
+    <h1>Memory Games for you!</h1>
+  </header>
+
+  <main>
+
+    <form>
+
+      <input type="radio" name="click" autofocus value="dbz" id="dbz" />
+      <input type="radio" name="click" value="ac" id="ac" />
+      <input type="radio" name="click" value="pokemon" id="pokemon" />
+      <input type="radio" name="click" value="vaporwave" id="vaporwave" />
+
+      <label for="dbz">
+        <a href="/dbz.html" rel="noopener" target="_self">
+          <img id="dbzimg" src="/img/index/dbz.png" />
+        </a>
+      </label>
+      <label for="ac">
+        <a href="/ac.html" rel="noopener" target="_self">
+          <img id="acimg" src="/img/index/ac.png" />
+        </a>
+      </label>
+      <label for="pokemon">
+        <a href="/pokemon.html" rel="noopener" target="_self">
+          <img id="pokemonimg" src="/img/index/pokemon.png" />
+        </a>
+      </label>
+      <label for="vaporwave">
+        <a href="/vaporwave.html" rel="noopener" target="_self">
+          <img id="vaporwaveimg" src="/img/index/vaporwave.png" />
+        </a>
+      </label>
+      
+      <div id="keys"></div>
+
+    </form>
+
+    <div id="player-stats">
+      <p>Record Score</p>
+      <p>Name</p>
+      <p>Record Time</p>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Hecho por Yorch, Jorge, Miguel y Edu 🖥️</p>
+  </footer>
+
+</body>
+
+</html>

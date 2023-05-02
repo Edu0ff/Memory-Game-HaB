@@ -1,0 +1,716 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/*Reseting values*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/*▒▒▒▒▒▒▒▒▒▒▒▒
+  ▒▒ HEADER ▒▒
+  ▒▒▒▒▒▒▒▒▒▒▒▒*/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    height: 3rem;
+}
+
+/* buttonMusic */
+
+.musicGame {
+    width:4rem;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #eee;
+}
+
+.musicGame img{
+    width: 80%;
+    padding: 0.5rem;
+}
+
+/* Go back button */
+
+.back-btn {
+    height: 100%;
+    border-radius: 5px;
+    color: #ffffff;
+    transition: all 300ms ease-in-out;
+}
+
+.back-btn:hover {
+    transform: scale(1.02);
+}
+
+/* Body part */
+
+body {
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("/img/Pokemon_IMG/pokemon-background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 600;
+}
+
+/* Overlay */
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Pop ups */
+
+.popup {
+    width: 400px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center; /* centrar los elementos verticalmente */
+    align-items: center;
+    flex-direction: column; /* establecer la dirección del flex en columna */
+}
+
+.popup-box {
+    width: 100%;
+    height: 33%;
+    margin: 0;
+}
+
+.popup h2 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+.popup p {
+    margin-bottom: 20px;
+}
+
+.popup button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.popup button:hover {
+    transform: scale(1.02);
+}
+
+#startBtn {
+    background-color: rgba(255, 255, 255, 0);
+    transition: all 300ms ease-in-out;
+    padding-top: 60px;
+}
+
+#playAgainBtn {
+    background-color: rgba(255, 255, 255, 0);
+    width: 300px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 300ms ease-in-out;
+}
+
+/*Game log*/
+
+/* Todo el juego */
+
+.memory-board {
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* El marcador */
+
+.game-metrics {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 640px;
+    height: 65px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+#score {
+    color: #ffffff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+    gap: 5px;
+    padding-left: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.score-tries,
+.score-matches,
+.score-misses {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    gap: 5px;
+}
+
+.score-matches {
+    color: green;
+}
+
+.score-misses {
+    color: #fe0101;
+}
+
+.image-score {
+    width: 40px;
+}
+
+.image-button {
+    width: 200px;
+}
+
+#timer-container {
+    color: #ffffff;
+    border-radius: 50px;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+#timer {
+    color: #ffcb05;
+    font-size: 1rem;
+    font-family: "Poppins";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.image-timer {
+    width: 45px;
+    padding-top: 10px;
+}
+
+.memory-card.shake {
+    animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-13px);
+    }
+    40% {
+        transform: translateX(13px);
+    }
+    60% {
+        transform: translateX(-8px);
+    }
+    80% {
+        transform: translateX(8px);
+    }
+}
+
+/* El tablero */
+.memory-game {
+    width: 640px;
+    height: 640px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: auto;
+    perspective: 1000px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Las carticas */
+.memory-card {
+    cursor: pointer;
+    position: relative;
+    list-style: none;
+    user-select: none;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(25% - 10px);
+    height: calc(20% - 10px);
+    margin: 5px;
+    transition: transform 0.5s;
+}
+
+.memory-card:active {
+    transform: scale(0.97);
+    transition: transform 0.2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.back-face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    backface-visibility: hidden;
+    background-color: rgba(0, 0, 255, 0);
+}
+
+.front-face {
+    transform: rotateY(180deg);
+    background-size: 200%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 135px;
+    height: 135px;
+    border-radius: 100px;
+    backface-visibility: hidden;
+    background-color: rgba(0, 0, 255, 0);
+}
+
+.card.shake {
+    animation: shake 0.35s ease-in-out;
+}
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-13px);
+    }
+    40% {
+        transform: translateX(13px);
+    }
+    60% {
+        transform: translateX(-8px);
+    }
+    80% {
+        transform: translateX(8px);
+    }
+}
+
+/* footer */
+.game-results {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 640px;
+    height: 80px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.game-log {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    background-color: #eee;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+  ▒▒ VERSION MÓVIL ▒▒
+  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒*/
+
+  @media (max-width: 480px) {
+
+/*▒▒▒▒▒▒▒▒▒▒▒▒
+  ▒▒ HEADER ▒▒
+  ▒▒▒▒▒▒▒▒▒▒▒▒*/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    height: 3rem;
+}
+
+/* buttonMusic */
+
+.musicGame {
+    width:4rem;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #eee;
+}
+
+.musicGame img{
+    width: 80%;
+    padding: 0.5rem;
+}
+
+/* Go back button */
+
+.back-btn {
+    height: 100%;
+    border-radius: 5px;
+    color: #ffffff;
+    transition: all 300ms ease-in-out;
+}
+
+.back-btn:hover {
+    transform: scale(1.02);
+}
+
+/* Body part */
+
+body {
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("/img/Pokemon_IMG/pokemonBgMovil.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 600;
+}
+
+/* Overlay */
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Pop ups */
+
+.popup {
+    width: 350px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center; /* centrar los elementos verticalmente */
+    align-items: center;
+    flex-direction: column; /* establecer la dirección del flex en columna */
+}
+
+.popup h2 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+.popup p {
+    margin-bottom: 20px;
+}
+
+.popup button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.popup button:hover {
+    transform: scale(1.02);
+}
+
+#startBtn {
+    background-color: rgba(255, 255, 255, 0);
+    transition: all 300ms ease-in-out;
+    padding-top: 60px;
+}
+
+#playAgainBtn {
+    background-color: rgba(255, 255, 255, 0);
+    width: 300px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 300ms ease-in-out;
+}
+
+/*Game log*/
+
+/* Todo el juego */
+
+.memory-board {
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* El marcador */
+
+.game-metrics {
+    width: 360px;
+}
+
+#score {
+    color: #ffffff;
+    display: flex;
+    justify-content:flex-start;
+    width: 300px;
+    padding-left: 0px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+#score p{
+    font-size: 0.8rem;
+}
+
+.score-tries,
+.score-matches,
+.score-misses {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.score-matches {
+    color: green;
+}
+
+.score-misses {
+    color: #fe0101;
+}
+
+.image-score {
+    width: 35px;
+    justify-self: center;
+}
+
+.image-button {
+    width: 200px;
+}
+
+#timer-container {
+    color: #ffffff;
+    border-radius: 50px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+#timer {
+    color: #ffcb05;
+    font-size: 0.8rem;
+    font-family: "Poppins";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.image-timer {
+    width: 40px;
+    padding-top: 20px;
+}
+
+.memory-card.shake {
+    animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-13px);
+    }
+    40% {
+        transform: translateX(13px);
+    }
+    60% {
+        transform: translateX(-8px);
+    }
+    80% {
+        transform: translateX(8px);
+    }
+}
+
+/* El tablero */
+.memory-game {
+    overflow: hidden;
+    width: 350px;
+    height: 540px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: auto;
+    perspective: 1000px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Las carticas */
+.memory-card {
+    cursor: pointer;
+    position: relative;
+    list-style: none;
+    user-select: none;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(25% - 10px);
+    height: calc(20% - 10px);
+    margin: 5px;
+    transition: transform 0.5s;
+}
+
+.memory-card:active {
+    transform: scale(0.97);
+    transition: transform 0.2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.back-face {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    backface-visibility: hidden;
+    background-color: rgba(0, 0, 255, 0);
+}
+
+.front-face {
+    transform: rotateY(180deg);
+    background-size: 200%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    backface-visibility: hidden;
+    background-color: rgba(0, 0, 255, 0);
+}
+
+.card.shake {
+    animation: shake 0.35s ease-in-out;
+}
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-13px);
+    }
+    40% {
+        transform: translateX(13px);
+    }
+    60% {
+        transform: translateX(-8px);
+    }
+    80% {
+        transform: translateX(8px);
+    }
+}
+
+/* footer */
+.game-results {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 80px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.game-log {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    background-color: #eee;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+  }
