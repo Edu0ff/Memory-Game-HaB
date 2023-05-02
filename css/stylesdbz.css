@@ -14,6 +14,7 @@ body {
     height: 100vh;
     display: flex;
     background: orangered;
+<<<<<<< HEAD
     background-image: url("/img/imagenes-dbz/fondo\ \(2\).jpg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -93,6 +94,13 @@ body {
     font-size: 1.3rem;
     background-color: transparent;
 }
+=======
+    background-image: url("/imagenes-dbz/fondo\ \(2\).jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+>>>>>>> b3ad7f13bb5adde043aeb94cee13eb21d6c37577
 .memory-game {
     width: 640px;
     height: 640px;
@@ -100,7 +108,10 @@ body {
     display: flex;
     flex-wrap: wrap;
     perspective: 1000px;
+<<<<<<< HEAD
     opacity: 0.95;
+=======
+>>>>>>> b3ad7f13bb5adde043aeb94cee13eb21d6c37577
 }
 
 .memory-card {
@@ -147,7 +158,11 @@ body {
     width: 80px;
     height: 100px;
 }
+<<<<<<< HEAD
 .board-head {
+=======
+h2 {
+>>>>>>> b3ad7f13bb5adde043aeb94cee13eb21d6c37577
     width: 100%;
     display: flex;
     justify-content: space-between;
