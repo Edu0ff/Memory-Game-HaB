@@ -53,7 +53,7 @@ header {
 body {
   min-height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/img/Pokemon_IMG/pokemon-background.jpeg");
+    url("/img/ac/fondo2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -457,7 +457,7 @@ body {
   body {
     min-height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("/img/Pokemon_IMG/pokemonBgMovil.jpg");
+      url("/img/ac/acBgMovil.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
