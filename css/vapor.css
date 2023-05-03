@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 
 /*Reseting values*/
 
@@ -6,7 +6,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "VT323", sans-serif;
 }
 
 /*▒▒▒▒▒▒▒▒▒▒▒▒
@@ -53,7 +53,7 @@ header {
 body {
   min-height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/img/Pokemon_IMG/pokemon-background.jpeg");
+    url("/img/vapor/background-image.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -92,6 +92,7 @@ body {
   justify-content: center; /* centrar los elementos verticalmente */
   align-items: center;
   flex-direction: column; /* establecer la dirección del flex en columna */
+  font-size: 2rem;
 }
 
 .popup-box {
@@ -101,7 +102,7 @@ body {
 }
 
 .popup h2 {
-  font-size: 1.7rem;
+  font-size: 3rem;
   margin-bottom: 10px;
 }
 
@@ -162,7 +163,7 @@ body {
   width: 640px;
   height: 65px;
   margin-bottom: 15px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 #score {
@@ -170,11 +171,13 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  height: 60px;
   width: 500px;
   gap: 5px;
   padding-left: 10px;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .score-tries,
@@ -185,14 +188,7 @@ body {
   align-items: center;
   margin: auto;
   gap: 5px;
-}
-
-.score-matches {
-  color: green;
-}
-
-.score-misses {
-  color: #fe0101;
+  color: black;
 }
 
 .image-score {
@@ -205,26 +201,16 @@ body {
 
 /* El marcador ai mode */
 
-.game-metrics {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 640px;
-  height: 65px;
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-}
-
 #vs {
-  color: #ffffff;
+  color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 500px;
   gap: 5px;
   padding-left: 10px;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .score-player,
@@ -237,8 +223,8 @@ body {
 }
 
 .turn {
-  color: yellow;
-  border: solid yellow;
+  color: rgb(235, 20, 174);
+  border: solid rgb(235, 20, 174);
   border-radius: 10px;
   padding-left: 5px;
   padding-right: 5px;
@@ -257,14 +243,13 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.7);
   margin-bottom: 10px;
 }
 
 #timer {
-  color: #ffcb05;
-  font-size: 1rem;
-  font-family: "Poppins";
+  color: black;
+  font-size: 1.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -275,29 +260,6 @@ body {
 .image-timer {
   width: 45px;
   padding-top: 10px;
-}
-
-.memory-card.shake {
-  animation: shake 0.35s ease-in-out;
-}
-
-@keyframes shake {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  20% {
-    transform: translateX(-13px);
-  }
-  40% {
-    transform: translateX(13px);
-  }
-  60% {
-    transform: translateX(-8px);
-  }
-  80% {
-    transform: translateX(8px);
-  }
 }
 
 /* El tablero */
@@ -343,8 +305,8 @@ body {
 
 .back-face {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 125px;
+  height: 125px;
   border-radius: 100px;
   backface-visibility: hidden;
   background-color: rgba(0, 0, 255, 0);
@@ -356,33 +318,11 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
-  width: 135px;
-  height: 135px;
+  width: 125px;
+  height: 125px;
   border-radius: 100px;
   backface-visibility: hidden;
   background-color: rgba(0, 0, 255, 0);
-}
-
-.card.shake {
-  animation: shake 0.35s ease-in-out;
-}
-@keyframes shake {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  20% {
-    transform: translateX(-13px);
-  }
-  40% {
-    transform: translateX(13px);
-  }
-  60% {
-    transform: translateX(-8px);
-  }
-  80% {
-    transform: translateX(8px);
-  }
 }
 
 /* footer */
@@ -390,15 +330,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   width: 640px;
   height: 80px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-size: 1.5rem;
 }
 .game-log {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   padding: 0.5rem;
@@ -406,6 +350,7 @@ body {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 /*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
@@ -457,7 +402,7 @@ body {
   body {
     min-height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("/img/Pokemon_IMG/pokemonBgMovil.jpg");
+      url("/img/vapor/background-image.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

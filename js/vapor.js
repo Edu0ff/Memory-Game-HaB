@@ -227,17 +227,35 @@ function msToTime(duration) {
 
 // Calculate the final score
 function calculateFinalScore(elapsedTime, tries) {
+  let levelModificator;
+  let modeModificator;
+
+  if (selectedDificulty === 'easy') {
+    levelModificator = 2;
+  } else if (difficulty === 'medium') {
+    levelModificator = 1.5;
+  } else if (difficulty === 'hard') {
+    levelModificator = 1;
+  }
+
+  if (selectedDificulty === 'solo') {
+    modeModificator = 1.5;
+  } else {
+    modeModificator = 1;
+  }
+  
   const baseScore = 1000;
-  const timePenalty = (elapsedTime/1000)*10;
-  const triesPenalty = tries * 2;
+  const timePenalty = (elapsedTime/1000)*(10*modeModificator);
+  const triesPenalty = tries * levelModificator;
   const finalScore = baseScore - timePenalty - triesPenalty;
   return finalScore > 0 ? finalScore : 0;
 };
 
 // Display game log
 function displayGameLog(message) {
-  const gameLog = document.getElementById("game-log");
-  const newLogEntry = document.createElement("p");
+  const gameLog = document.getElementById("game-log-list");
+  //const newLogEntry = document.createElement("p");
+  const newLogEntry = document.createElement("li");
   newLogEntry.textContent = message;
   gameLog.appendChild(newLogEntry);
 };
