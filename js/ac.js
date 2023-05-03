@@ -41,6 +41,12 @@ let elapsedTime = 0;
 let gameNumber = 0;
 let gameResults = [];
 
+//Audio Variables
+const flipCardAudio = new Audio ("audio/ac/flip.mp3");
+const musicAcierto = new Audio ("audio/ac/match.mp3");
+const musicFallo = new Audio ("audio/ac/miss.mp3");
+
+
 //-------------------- HTML SELECTORS--------------------//
 
 //Selecting the cards
@@ -82,8 +88,9 @@ function flipCard() {
   if (lockBoard || (selectedGameMode === 'ai')) return;
   this.classList.add('flip');
   if (!hasFlippedCard) {
+    flipCardAudio.play();
     hasFlippedCard = true;
-    firstCard = this;
+    firstCard = this; 
   } else {
     hasFlippedCard = false;
     secondCard = this;
@@ -98,11 +105,12 @@ function addFlipCardEventListeners() {
 
 //function to remove the flip funtion to all the cards
 
-const resetFlipCardEventListener = () => {
-  cards.forEach(card => {card.classList.remove('flip');
-  card.addEventListener('click', flipCard);
+function resetFlipCardEventListener() {
+  cards.forEach(card => {
+    card.classList.remove('flip');
+    card.addEventListener('click', flipCard);
   });
-};
+}
 
 // whe a match is true solo Mode
 
@@ -113,9 +121,10 @@ const soloModeTrueMatch = () => {
     matchesSpan.textContent = `${matches} / ${numOfPair}`;
     tries += 1;
     triesSpan.textContent = tries;
+    musicAcierto.play();
 };
 
-// whe a match is false solo Mode
+// when a match is false solo Mode
 const soloModeFalseMatch = () => {
       lockBoard = true;
       setTimeout(() => {
@@ -126,6 +135,7 @@ const soloModeFalseMatch = () => {
         missesSpan.textContent = misses;
         tries += 1;
         triesSpan.textContent = tries;
+        musicFallo.play();
     }, 1500);
 };
 
@@ -161,7 +171,7 @@ const finishGame = () => {
 const gameLogCreator = () => {
     gameNumber++
     gameResults.push({ game: gameNumber, mode: selectedGameMode, dificulty: selectedDificulty, score: finalScore});
-    let resultString = ` Game ${gameNumber}:Mode ${selectedGameMode} - Dificulty ${selectedDificulty} - Score ${finalScore} `;
+    let resultString = ` Game ${gameNumber}: Mode ${selectedGameMode} - Dificulty ${selectedDificulty} - Score ${finalScore} `;
     displayGameLog(resultString);
 
 }
@@ -484,7 +494,7 @@ startBtn.addEventListener("click", () => {
   initGame();
 });
 
-//Selected Dificuklty level
+//Selected Dificulty level
 selectorElems.forEach((elem) => {
   elem.addEventListener("click", () => {
     selectedDificulty = elem.value;

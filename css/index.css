@@ -265,6 +265,7 @@ body {
 
 }
 
+
 /*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
   ▒▒ VERSION DESKTOP ▒▒
   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒*/
@@ -296,7 +297,7 @@ body {
 
   body {
     overflow: hidden;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
   }
@@ -319,7 +320,7 @@ body {
   }
 
   img {
-    width: 40%;
+    width: 44%;
   }
 
   img:hover{
@@ -344,9 +345,10 @@ body {
   ▒▒▒▒▒▒▒▒▒▒▒▒*/
 
   footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     font-size: 1rem;
-    text-align: center;
-    margin-top: auto;
     margin-bottom: 0.3rem;
   }
 
