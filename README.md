@@ -14,10 +14,13 @@ Background music and sound effects 🎶
 
 ## Screenshots
 
-![App Screenshot](/img/screenshots/ac.png)
-![App Screenshot](/img/screenshots/dbz.png)
-![App Screenshot](/img/screenshots/pokemon.png)
-![App Screenshot](/img/screenshots/vapor.png)
+<img src="/img/screenshots/ac.png" alt="drawing" width="700"/>
+<img src="/img/screenshots/pokemon.png" alt="drawing" width="700"/>
+<img src="/img/screenshots/vapor.png" alt="drawing" width="700"/>
+<img src="/img/screenshots/dbz.png" alt="drawing" width="200"/>
+
+
+
 
 
 ## How to Play
