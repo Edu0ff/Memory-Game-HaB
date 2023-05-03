@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,20 +9,15 @@
   <script src="js/pokemon.js" defer></script>
   <title>Pokemon Memory Game</title>
 </head>
-
 <body>
   <header>
-    <a href="index.html" class="back-btn"><img src="/img/Pokemon_IMG/button_back.svg" class="image-button"></a>
-    
+    <a href="index.html" class="back-btn"><img src="/img/Pokemon_IMG/button_back.svg" class="image-button"></a> 
     <audio id="myAudio" src="audio/Pokemon/pokemon-opening.mp3"></audio>
     <button class="musicGame"onclick="playPause()">
       <img id="mute" style="display: none;" src="/img/mute.png" />
       <img id="unmute" src="/img/unmute.png" />
-    </button>
-    
+    </button>    
   </header>
-  
-
   <!-- Entorno completo -->
   <section class="memory-board">
     <!-- Pop up - Aquí hay que hacer Pop up para Start y pop up para Play again-->
@@ -59,25 +53,22 @@
           </label>
         </div>
         <p id="playAgainMessage" style="display: none"></p>
-        <button id="startBtn"><img src="/img/Pokemon_IMG/button_start.svg" class="image-button"></button>
-        
-       
+        <button id="startBtn"><img src="/img/Pokemon_IMG/button_start.svg" class="image-button"></button>   
         <button id="playAgainBtn" style="display: none;"><img src="/img/Pokemon_IMG/button_play_again.svg"
             class="image-button-again"></button></button>
       </div>
     </div>
-
     <!-- Game Metrics and this things-->
     <div class="game-metrics">
       <div id="vs" style="display: none">
-        <div id="score-player" class="score-player turn"><img src="/img/Pokemon_IMG/tries.svg" class="image-score">
+        <div id="score-player" class="score-player turn"><img src="/img/Pokemon_IMG/player.svg" class="image-score">
           <p>YOU: <span id="huma-matches">0</span></p>
         </div>
         <div>
           <p>VS</p>
         </div>
         <div id="score-computer" class="score-computer">
-          <img src="/img/Pokemon_IMG/Points_4.svg" class="image-score">
+          <img src="/img/Pokemon_IMG/computer.svg" class="image-score">
           <p>MACHINE: <span id="aiMatches">0</span></p>
         </div>
       </div>
@@ -101,110 +92,99 @@
         </div>
       </div>
     </div>
-    
     <div class="memory-game">
       <!-- Pair 1 -->
-      <div class="memory-card" data-framework="catAttack">
+      <div class="memory-card" data-framework="img-1">
         <img class="front-face" src="img/Pokemon_IMG/img-1.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-      <div class="memory-card" data-framework="catAttack">
+      <div class="memory-card" data-framework="img-1">
         <img class="front-face" src="img/Pokemon_IMG/img-1.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-
       <!-- Pair 2 -->
-      <div class="memory-card" data-framework="catDjPizza">
+      <div class="memory-card" data-framework="img-2">
         <img class="front-face" src="img/Pokemon_IMG/img-2.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-      <div class="memory-card" data-framework="catDjPizza">
+      <div class="memory-card" data-framework="img-2">
         <img class="front-face" src="img/Pokemon_IMG/img-2.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-
       <!-- Pair 3 -->
-      <div class="memory-card" data-framework="catSushi">
+      <div class="memory-card" data-framework="img-3">
         <img class="front-face" src="img/Pokemon_IMG/img-3.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-      <div class="memory-card" data-framework="catSushi">
+      <div class="memory-card" data-framework="img-3">
         <img class="front-face" src="img/Pokemon_IMG/img-3.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-
       <!-- Pair 4 -->
-      <div class="memory-card" data-framework="catPanic">
+      <div class="memory-card" data-framework="img-4">
         <img class="front-face" src="img/Pokemon_IMG/img-4.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-      <div class="memory-card" data-framework="catPanic">
+      <div class="memory-card" data-framework="img-4">
         <img class="front-face" src="img/Pokemon_IMG/img-4.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-
       <!-- Pair 5 -->
-      <div class="memory-card" data-framework="catGod">
+      <div class="memory-card" data-framework="img-5">
         <img class="front-face" src="img/Pokemon_IMG/img-5.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-      <div class="memory-card" data-framework="catGod">
+      <div class="memory-card" data-framework="img-5">
         <img class="front-face" src="img/Pokemon_IMG/img-5.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-
       <!-- Pair 6 -->
-      <div class="memory-card" data-framework="catPizzaEater">
+      <div class="memory-card" data-framework="img-6">
         <img class="front-face" src="img/Pokemon_IMG/img-6.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-      <div class="memory-card" data-framework="catPizzaEater">
+      <div class="memory-card" data-framework="img-6">
         <img class="front-face" src="img/Pokemon_IMG/img-6.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-
       <!-- Pair 7 -->
-      <div class="memory-card" data-framework="catLaser">
+      <div class="memory-card" data-framework="img-7">
         <img class="front-face" src="img/Pokemon_IMG/img-7.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-      <div class="memory-card" data-framework="catLaser">
+      <div class="memory-card" data-framework="img-7">
         <img class="front-face" src="img/Pokemon_IMG/img-7.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-
       <!-- Pair 8 -->
-      <div class="memory-card" data-framework="catFinger">
+      <div class="memory-card" data-framework="img-8">
         <img class="front-face" src="img/Pokemon_IMG/img-8.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-      <div class="memory-card" data-framework="catFinger">
+      <div class="memory-card" data-framework="img-8">
         <img class="front-face" src="img/Pokemon_IMG/img-8.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-
       <!-- Pair 9 -->
-      <div class="memory-card" data-framework="catOvni">
+      <div class="memory-card" data-framework="img-9">
         <img class="front-face" src="img/Pokemon_IMG/img-9.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-      <div class="memory-card" data-framework="catOvni">
+      <div class="memory-card" data-framework="img-9">
         <img class="front-face" src="img/Pokemon_IMG/img-9.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-
       <!-- Pair 10 -->
-      <div class="memory-card" data-framework="catKnit">
+      <div class="memory-card" data-framework="img-10">
         <img class="front-face" src="img/Pokemon_IMG/img-10.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
-      <div class="memory-card" data-framework="catKnit">
+      <div class="memory-card" data-framework="img-10">
         <img class="front-face" src="img/Pokemon_IMG/img-10.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
       </div>
     </div>
     </div>
-    
   </section>
   <footer class="game-results">
     <div id="game-log" class="game-log">
@@ -212,5 +192,4 @@
     </div>
   </footer>
 </body>
-
 </html>

@@ -1,11 +1,11 @@
 //-------------------- VARIABLES--------------------//
 
-//board and Cards Variables
+//Board and Cards Variables
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
-//Dificulty Mode Variables
+//Difficulty Mode Variables
 let selectedDificulty = "easy";
 const easyPairs = 6;
 const mediumPairs = 8;
@@ -15,7 +15,7 @@ let numOfPair;
 //Game mode
 let selectedGameMode ='solo';
 
-//ai mode variabnles
+//AI mode variabLes
 let aiMatches = 0; 
 let humaMatches = 0;
 let turn = 'human';
@@ -28,6 +28,7 @@ let matches = 0;
 let misses = 0;
 let tries = 0;
 let finalScore;
+let music = new Audio();
 
 // Add timer variables
 let startTime;
@@ -70,14 +71,14 @@ const gameModeSelector = document.querySelectorAll('input[name="mode"]');
 //Timer selector
 const timerElement = document.getElementById("timer");
 
-//game log
+//Game log
 const gameLogDiv = document.getElementById("gameLog");
 
 //-------------------- FUNCTIONS--------------------//
 
 //SOLO MODE FUNCTIONS
 
-//function to flip the cards
+//Function to flip the cards
 function flipCard() {
   if (lockBoard || (selectedGameMode === 'ai')) return;
   this.classList.add('flip');
@@ -91,12 +92,12 @@ function flipCard() {
   }
 };
 
-//function to apply the flip funtion to all the cards
+//Function to apply the flip function to all the cards
 function addFlipCardEventListeners() {
   cards.forEach(card => card.addEventListener('click', flipCard));
 };
 
-//function to remove the flip funtion to all the cards
+//Function to remove the flip function to all the cards
 
 const resetFlipCardEventListener = () => {
   cards.forEach(card => {card.classList.remove('flip');
@@ -104,32 +105,40 @@ const resetFlipCardEventListener = () => {
   });
 };
 
-// whe a match is true solo Mode
+// When a match is true solo Mode
 
 const soloModeTrueMatch = () => {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
     matches += 1;
+    const successSound = new Audio("./audio/Pokemon/mew-mew-mew_wz9wQhy.mp3");
+    successSound.volume = 0.2;
+    successSound.play();
     matchesSpan.textContent = `${matches} / ${numOfPair}`;
     tries += 1;
     triesSpan.textContent = tries;
 };
 
-// whe a match is false solo Mode
+
+
+// When a match is false solo Mode
 const soloModeFalseMatch = () => {
       lockBoard = true;
       setTimeout(() => {
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
         lockBoard = false;
+        const failSound = new Audio("./audio/Pokemon/eevee-starter.mp3");
+        failSound.volume = 0.2;
+        failSound.play();
         misses += 1;
         missesSpan.textContent = misses;
         tries += 1;
         triesSpan.textContent = tries;
-    }, 1500);
+    }, 900);
 };
 
-//function to check the 2 cards selected are the same and what happen if true or false
+//Function to check the 2 cards selected are the same and what happen if true or false
 const checkMatch = () => {
   if (firstCard.dataset.framework === secondCard.dataset.framework) {
     soloModeTrueMatch();
@@ -139,7 +148,7 @@ const checkMatch = () => {
   }
 };
 
-//function to randmoly reorder the position of the cards
+//Function to randomly reorder the position of the cards
 const shuffle = () => {
   cards.forEach(card => {
     let randomPosition = Math.floor(Math.random() * numOfPair * 2);
@@ -147,7 +156,7 @@ const shuffle = () => {
   });
 };
 
-//function that checks if the game is finished and trigger all the things associated to this phase
+//Function that checks if the game is finished and trigger all the things associated to this phase
 const finishGame = () => {
   if (matches === numOfPair) {
     stopTimer();
@@ -157,7 +166,7 @@ const finishGame = () => {
   }
 };
 
-//to include the game log at the end of each game
+//To include the game log at the end of each game
 const gameLogCreator = () => {
     gameNumber++
     gameResults.push({ game: gameNumber, mode: selectedGameMode, dificulty: selectedDificulty, score: finalScore});
@@ -168,7 +177,7 @@ const gameLogCreator = () => {
 
 //POP UP RELATED FUNCTIONS
 
-//finish Game Pop up
+//Finish Game Pop up
 const finishPopUpSolo = () => {
   document.getElementById('startBtn').style.display = 'none';
   document.getElementById('playAgainBtn').style.display = 'block';
@@ -181,7 +190,10 @@ const finishPopUpSolo = () => {
   let elapsedTime = calculateElapsedTime();
   const elapsedTimeFormatted = msToTime(elapsedTime);
   finalScore = Math.round(calculateFinalScore(elapsedTime, tries));
-  finalResultSpan.textContent = `Your final result is ${misses} misses, ${matches} matches y ${tries}tries stoping the timer at ${elapsedTimeFormatted}. Your final score is ${finalScore}/1000`;
+  finalResultSpan.textContent = `Your final result is ${misses} misses, ${matches} matches and ${tries} tries, stopping the timer at ${elapsedTimeFormatted}. Your final score is ${finalScore}/1000`;
+  const winSound = new Audio("./audio/Pokemon/pokemon-theme.mp3");
+  winSound.volume = 0.2;
+  winSound.play();
 };
 
 
@@ -206,13 +218,13 @@ function stopTimer() {
   clearInterval(timerInterval);
 };
 
-//calculate the elapsed time
+//Calculate the elapsed time
 function calculateElapsedTime() {
   const endTime = new Date().getTime();
   return endTime - startTime;
 };
 
-// Misilecons translator to minutes and seconds to show it in the finnal mesage
+// Miscelaneous translator to minutes and seconds to show it in the finnal mesage
 function msToTime(duration) {
   let seconds = Math.floor((duration / 1000) % 60),
     minutes = Math.floor((duration / (1000 * 60)) % 60);
@@ -242,9 +254,9 @@ function displayGameLog(message) {
   gameLog.appendChild(newLogEntry);
 };
 
-//DIFICULTY FUNCTIONS
+//DIFFICULTY FUNCTIONS
 
-//translate dificulty to number of pairs
+//Translate difficulty to number of pairs
 const dificultyPairs = () => {
   switch (selectedDificulty) {
     case "easy":
@@ -259,7 +271,7 @@ const dificultyPairs = () => {
   };
 };
 
-//apply selected dificulty
+//Apply selected difficulty
 function setDifficulty(difficulty = 'easy') {
 
   if (difficulty === 'easy') {
@@ -306,6 +318,7 @@ function aiflipCard() {
     hasFlippedCard = false;
     secondCard = this;
     aiCheckMatch();
+    
   }
 };
 
@@ -316,6 +329,9 @@ const aiCheckMatch = () => {
       console.log('iguales humano');
       firstCard.removeEventListener('click', aiflipCard);
       secondCard.removeEventListener('click', aiflipCard);
+      const successSound = new Audio("./audio/Pokemon/mew-mew-mew_wz9wQhy.mp3");
+      successSound.volume = 0.2;
+      successSound.play();
       humaMatches += 1;
       humaMatchesSpan.textContent = `${humaMatches} / ${Math.floor(numOfPair / 2)}`;
       aiFinishGame();
@@ -325,6 +341,9 @@ const aiCheckMatch = () => {
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
         lockBoard = false;
+        const successSound = new Audio("./audio/Pokemon/eevee-starter.mp3");
+        successSound.volume = 0.2;
+        successSound.play();
       }, 1500);
     }
     turn = 'ai'
@@ -336,6 +355,9 @@ const aiCheckMatch = () => {
     console.log('iguales ia');
     firstCard.removeEventListener('click', aiflipCard);
     secondCard.removeEventListener('click', aiflipCard);
+    const successSound = new Audio("./audio/Pokemon/mew-mew-mew_wz9wQhy.mp3");
+    successSound.volume = 0.2;
+    successSound.play();
     aiMatches += 1;
     aiMatchesSpan.textContent = `${aiMatches} / ${numOfPair / 2}`;
     aiFinishGame();
@@ -345,6 +367,9 @@ const aiCheckMatch = () => {
       firstCard.classList.remove('flip');
       secondCard.classList.remove('flip');
       lockBoard = false;
+      const successSound = new Audio("./audio/Pokemon/eevee-starter.mp3");
+      successSound.volume = 0.2;
+      successSound.play();
       scorePlayerMetric.classList.add('turn');
       scoreComputerMetric.classList.remove('turn')
     }, 1500);
@@ -353,7 +378,7 @@ const aiCheckMatch = () => {
    }
  };
  
-//random selection for the ai
+//Random selection for the ai
 function selectRandomCard(unflippedCards) {
   const randomIndex = Math.floor(Math.random() * unflippedCards.length);
   return unflippedCards[randomIndex];
@@ -394,6 +419,7 @@ const aiFinishGame = () => {
     stopTimer();
     resetFlipCardEventListenerAi();
     finishPopUphumanWins();
+    
     gameLogCreator();
   } else if (aiMatches === numOfPair / 2 ) {
     stopTimer();
@@ -434,7 +460,7 @@ const finishPopUphumanWins = () => {
   let elapsedTime = calculateElapsedTime();
   const elapsedTimeFormatted = msToTime(elapsedTime);
   finalScore = Math.round(calculateFinalScore(elapsedTime, tries));
-  finalResultSpan.textContent = `You Won againts the Team Rocket !!! You did it in ${elapsedTimeFormatted}. Your final score is ${finalScore}/1000`;
+  finalResultSpan.textContent = `You Won against the Team Rocket !!! You did it in ${elapsedTimeFormatted}. Your final score is ${finalScore}/1000`;
 };
 
 
