@@ -232,9 +232,9 @@ function calculateFinalScore(elapsedTime, tries) {
 
   if (selectedDificulty === 'easy') {
     levelModificator = 2;
-  } else if (difficulty === 'medium') {
+  } else if (selectedDificulty === 'medium') {
     levelModificator = 1.5;
-  } else if (difficulty === 'hard') {
+  } else if (selectedDificulty === 'hard') {
     levelModificator = 1;
   }
 
