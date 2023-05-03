@@ -78,32 +78,37 @@ const gameLogDiv = document.getElementById("gameLog");
 
 //SOLO MODE FUNCTIONS
 
-//Function to flip the cards
+//function to flip the cards
 function flipCard() {
   if (lockBoard || (selectedGameMode === 'ai')) return;
   this.classList.add('flip');
   if (!hasFlippedCard) {
     hasFlippedCard = true;
     firstCard = this;
+    console.log('flip1');
   } else {
     hasFlippedCard = false;
     secondCard = this;
+    console.log('flip2');
     checkMatch();
   }
 };
 
-//Function to apply the flip function to all the cards
+//function to apply the flip funtion to all the cards
 function addFlipCardEventListeners() {
   cards.forEach(card => card.addEventListener('click', flipCard));
+  console.log('adding Fipcard');
 };
 
-//Function to remove the flip function to all the cards
+//function to remove the flip funtion to all the cards
 
 const resetFlipCardEventListener = () => {
   cards.forEach(card => {card.classList.remove('flip');
   card.addEventListener('click', flipCard);
+  console.log('resetfliplistener');
   });
 };
+
 
 // When a match is true solo Mode
 
@@ -143,8 +148,12 @@ const checkMatch = () => {
   if (firstCard.dataset.framework === secondCard.dataset.framework) {
     soloModeTrueMatch();
     finishGame();
+    console.log('iquals solo');
+    console.log(matches);
   } else {
     soloModeFalseMatch();
+    console.log('diferent solo');
+    console.log(matches);
   }
 };
 
@@ -163,6 +172,8 @@ const finishGame = () => {
     resetFlipCardEventListener();
     finishPopUpSolo();
     gameLogCreator();
+    console.log(matches);
+    console.log('juego finalizado');
   }
 };
 
@@ -239,9 +250,26 @@ function msToTime(duration) {
 
 // Calculate the final score
 function calculateFinalScore(elapsedTime, tries) {
+  let levelModificator;
+  let modeModificator;
+
+  if (selectedDificulty === 'easy') {
+    levelModificator = 2;
+  } else if (selectedDificulty === 'medium') {
+    levelModificator = 1.5;
+  } else if (selectedDificulty === 'hard') {
+    levelModificator = 1;
+  }
+
+  if (selectedDificulty === 'solo') {
+    modeModificator = 1.5;
+  } else {
+    modeModificator = 1;
+  }
+  
   const baseScore = 1000;
-  const timePenalty = (elapsedTime/1000)*10;
-  const triesPenalty = tries * 2;
+  const timePenalty = (elapsedTime/1000)*(10*modeModificator);
+  const triesPenalty = tries * levelModificator;
   const finalScore = baseScore - timePenalty - triesPenalty;
   return finalScore > 0 ? finalScore : 0;
 };
@@ -303,37 +331,74 @@ function setDifficulty(difficulty = 'easy') {
 
 // AI-specific event listeners
 function addAiFlipCardEventListeners() {
-  cards.forEach(card => card.addEventListener('click', aiflipCard));
+  if (selectedGameMode === 'solo') {
+    return;
+  } else {
+    cards.forEach(card => card.addEventListener('click', aiflipCard));
   console.log('adding aiFipcard');
+  }
+  
 }
 
 // AI-specific flipCard function
 function aiflipCard() {
-  if (lockBoard) return;
+
+  if (selectedGameMode === 'solo') {
+    return;
+
+  } else {
+    if (lockBoard) return;
   this.classList.add('flip');
   if (!hasFlippedCard) {
     hasFlippedCard = true;
     firstCard = this;
+    console.log('human 1 card');
   } else {
     hasFlippedCard = false;
     secondCard = this;
     aiCheckMatch();
-    
+    console.log('human 2 card');
   }
+
+  }
+
+  
 };
 
 // AI-specific checkMatch function
 const aiCheckMatch = () => {
-  if (turn === 'human') {
-    if (firstCard.dataset.framework === secondCard.dataset.framework) {
-      console.log('iguales humano');
+  if (selectedGameMode === 'solo') {
+    return;
+
+  } else {
+    console.log('checkaim mode');
+    if (turn === 'human') {
+      if (firstCard.dataset.framework === secondCard.dataset.framework) {
+        console.log('iguales humano');
+        firstCard.removeEventListener('click', aiflipCard);
+        secondCard.removeEventListener('click', aiflipCard);
+        humaMatches += 1;
+        humaMatchesSpan.textContent = `${humaMatches} / ${Math.floor(numOfPair / 2)}`;
+        aiFinishGame();
+      } else {
+        lockBoard = true;
+        setTimeout(() => {
+          firstCard.classList.remove('flip');
+          secondCard.classList.remove('flip');
+          lockBoard = false;
+        }, 1500);
+      }
+      turn = 'ai'
+      setTimeout(() => {
+        aiTurn()
+      }, 1700);
+     } else { 
+      if (firstCard.dataset.framework === secondCard.dataset.framework) {
+      console.log('iguales ia');
       firstCard.removeEventListener('click', aiflipCard);
       secondCard.removeEventListener('click', aiflipCard);
-      const successSound = new Audio("./audio/Pokemon/mew-mew-mew_wz9wQhy.mp3");
-      successSound.volume = 0.2;
-      successSound.play();
-      humaMatches += 1;
-      humaMatchesSpan.textContent = `${humaMatches} / ${Math.floor(numOfPair / 2)}`;
+      aiMatches += 1;
+      aiMatchesSpan.textContent = `${aiMatches} / ${numOfPair / 2}`;
       aiFinishGame();
     } else {
       lockBoard = true;
@@ -341,44 +406,17 @@ const aiCheckMatch = () => {
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
         lockBoard = false;
-        const successSound = new Audio("./audio/Pokemon/eevee-starter.mp3");
-        successSound.volume = 0.2;
-        successSound.play();
+        scorePlayerMetric.classList.add('turn');
+        scoreComputerMetric.classList.remove('turn')
       }, 1500);
     }
-    turn = 'ai'
-    setTimeout(() => {
-      aiTurn()
-    }, 1700);
-   } else { 
-    if (firstCard.dataset.framework === secondCard.dataset.framework) {
-    console.log('iguales ia');
-    firstCard.removeEventListener('click', aiflipCard);
-    secondCard.removeEventListener('click', aiflipCard);
-    const successSound = new Audio("./audio/Pokemon/mew-mew-mew_wz9wQhy.mp3");
-    successSound.volume = 0.2;
-    successSound.play();
-    aiMatches += 1;
-    aiMatchesSpan.textContent = `${aiMatches} / ${numOfPair / 2}`;
-    aiFinishGame();
-  } else {
-    lockBoard = true;
-    setTimeout(() => {
-      firstCard.classList.remove('flip');
-      secondCard.classList.remove('flip');
-      lockBoard = false;
-      const successSound = new Audio("./audio/Pokemon/eevee-starter.mp3");
-      successSound.volume = 0.2;
-      successSound.play();
-      scorePlayerMetric.classList.add('turn');
-      scoreComputerMetric.classList.remove('turn')
-    }, 1500);
+    turn = 'human';
+     }
+   };
   }
-  turn = 'human';
-   }
- };
+
  
-//Random selection for the ai
+//random selection for the ai
 function selectRandomCard(unflippedCards) {
   const randomIndex = Math.floor(Math.random() * unflippedCards.length);
   return unflippedCards[randomIndex];
@@ -389,6 +427,7 @@ const aiTurn = () => {
   if (turn === "human") {
     return;
   } else {
+    console.log('turn ai');
     scorePlayerMetric.classList.remove('turn')
     scoreComputerMetric.classList.add('turn');
     let availableCards = document.querySelectorAll('.memory-card:not(.no)');
@@ -406,6 +445,7 @@ const aiTurn = () => {
 //function to reset aiflipcards
 
 const resetFlipCardEventListenerAi = () => {
+  console.log('reset ai listeners');
   cards.forEach(card => {card.classList.remove('flip');
   card.addEventListener('click', aiflipCard);
   });
@@ -414,12 +454,12 @@ const resetFlipCardEventListenerAi = () => {
 
 // ai finish game
 const aiFinishGame = () => {
+  console.log(' ai finish');
   if (humaMatches === numOfPair / 2 ){
     turn = 'human';
     stopTimer();
     resetFlipCardEventListenerAi();
     finishPopUphumanWins();
-    
     gameLogCreator();
   } else if (aiMatches === numOfPair / 2 ) {
     stopTimer();
@@ -432,6 +472,8 @@ const aiFinishGame = () => {
 
 //finish Game Pop up
 const finishPopUpAiWins = () => {
+  console.log(selectedGameMode);
+  console.log(selectedDificulty);
   document.getElementById('finishTextLose').style.display = 'block';
   document.getElementById('welcomeText').style.display = 'none';
   document.getElementById('startBtn').style.display = 'none';
@@ -448,6 +490,8 @@ const finishPopUpAiWins = () => {
 };
 
 const finishPopUphumanWins = () => {
+  console.log(selectedGameMode);
+  console.log(selectedDificulty);
   document.getElementById('finishText').style.display = 'block';
   document.getElementById('welcomeText').style.display = 'none';
   document.getElementById('startBtn').style.display = 'none';
@@ -460,7 +504,7 @@ const finishPopUphumanWins = () => {
   let elapsedTime = calculateElapsedTime();
   const elapsedTimeFormatted = msToTime(elapsedTime);
   finalScore = Math.round(calculateFinalScore(elapsedTime, tries));
-  finalResultSpan.textContent = `You Won against the Team Rocket !!! You did it in ${elapsedTimeFormatted}. Your final score is ${finalScore}/1000`;
+  finalResultSpan.textContent = `You won!!! You did it in ${elapsedTimeFormatted}. Your final score is ${finalScore}/1000`;
 };
 
 
@@ -483,17 +527,21 @@ const resetStats = () => {
 
 const initGame = () => {
   if (selectedGameMode === 'solo') {
+    dificultyPairs();
     setDifficulty(selectedDificulty);
     shuffle();
     addFlipCardEventListeners();
     score.style.display = '';
     vs.style.display = 'none';
+    resetStats();
   } else {
+    dificultyPairs();
     setDifficulty(selectedDificulty);
     shuffle();
     addAiFlipCardEventListeners();
     score.style.display = 'none';
     vs.style.display = '';
+    resetStats();
   };
 };
 
@@ -505,10 +553,28 @@ const initGame = () => {
 startBtn.addEventListener("click", () => {
   overlay.style.display = "none";
   popup.style.display = "none";
+    if (selectedGameMode === 'solo') {
+  resetFlipCardEventListener();
+  } else {
+  resetFlipCardEventListenerAi();
+  }
+  initGame();
   resetStats();
   startTimer();
-  initGame();
+  console.log(selectedGameMode);
+  console.log(selectedDificulty);
 });
+
+// startBtn.addEventListener("click", () => {
+//   overlay.style.display = "none";
+//   popup.style.display = "none";
+//   if (selectedGameMode === 'solo') {
+//   resetFlipCardEventListener();
+//   } else {
+//   resetFlipCardEventListenerAi();
+//   }
+//   startTimer();
+//   });
 
 //Selected Dificuklty level
 selectorElems.forEach((elem) => {
@@ -518,28 +584,51 @@ selectorElems.forEach((elem) => {
   });
 });
 
+
 //select game mode
 gameModeSelector.forEach((elem) => {
   elem.addEventListener("click", () => {
     selectedGameMode = elem.value;
+    console.log(selectedGameMode);
+  console.log(selectedDificulty);
   });
 });
+
 
 //Play again button
 playAgainBtn.addEventListener("click", () => {
   overlay.style.display = "none";
   popup.style.display = "none";
+    if (selectedGameMode === 'solo') {
+  resetFlipCardEventListener();
+  } else {
+  resetFlipCardEventListenerAi();
+  }
+  initGame();
   resetStats();
   startTimer();
   shuffle();
+  console.log(selectedGameMode);
+  console.log(selectedDificulty);
 });
+
+// playAgainBtn.addEventListener("click", () => {
+//   overlay.style.display = "none";
+//   popup.style.display = "none";
+//   if (selectedGameMode === 'solo') {
+//   resetFlipCardEventListener();
+//   } else {
+//   resetFlipCardEventListenerAi();
+//   }
+//   resetGame();
+//   startTimer();
+//   });
 
 
 //----------INITIATE THE GAME------//
 
 
 initGame();
-
 
 // musicgame
 
