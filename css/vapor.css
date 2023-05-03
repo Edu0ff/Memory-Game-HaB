@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+=======
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 
 /*Reseting values*/
 
@@ -6,7 +10,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+<<<<<<< HEAD
   font-family: "VT323", sans-serif;
+=======
+  font-family: "Poppins", sans-serif;
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 }
 
 /*▒▒▒▒▒▒▒▒▒▒▒▒
@@ -53,7 +61,11 @@ header {
 body {
   min-height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+<<<<<<< HEAD
     url("/img/vapor/background-image.svg");
+=======
+    url("/img/Pokemon_IMG/pokemon-background.jpeg");
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -92,7 +104,10 @@ body {
   justify-content: center; /* centrar los elementos verticalmente */
   align-items: center;
   flex-direction: column; /* establecer la dirección del flex en columna */
+<<<<<<< HEAD
   font-size: 2rem;
+=======
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 }
 
 .popup-box {
@@ -102,7 +117,11 @@ body {
 }
 
 .popup h2 {
+<<<<<<< HEAD
   font-size: 3rem;
+=======
+  font-size: 1.7rem;
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
   margin-bottom: 10px;
 }
 
@@ -163,7 +182,11 @@ body {
   width: 640px;
   height: 65px;
   margin-bottom: 15px;
+<<<<<<< HEAD
   font-size: 1.5rem;
+=======
+  font-size: 1.2rem;
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 }
 
 #score {
@@ -171,13 +194,20 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+<<<<<<< HEAD
   height: 60px;
+=======
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
   width: 500px;
   gap: 5px;
   padding-left: 10px;
   border-radius: 10px;
+<<<<<<< HEAD
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+=======
+  background-color: rgba(0, 0, 0, 0.5);
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 }
 
 .score-tries,
@@ -188,7 +218,18 @@ body {
   align-items: center;
   margin: auto;
   gap: 5px;
+<<<<<<< HEAD
   color: black;
+=======
+}
+
+.score-matches {
+  color: green;
+}
+
+.score-misses {
+  color: #fe0101;
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 }
 
 .image-score {
@@ -201,16 +242,36 @@ body {
 
 /* El marcador ai mode */
 
+<<<<<<< HEAD
 #vs {
   color: black;
+=======
+.game-metrics {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 640px;
+  height: 65px;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+#vs {
+  color: #ffffff;
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 500px;
   gap: 5px;
   padding-left: 10px;
+<<<<<<< HEAD
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+=======
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 }
 
 .score-player,
@@ -223,8 +284,13 @@ body {
 }
 
 .turn {
+<<<<<<< HEAD
   color: rgb(235, 20, 174);
   border: solid rgb(235, 20, 174);
+=======
+  color: yellow;
+  border: solid yellow;
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
   border-radius: 10px;
   padding-left: 5px;
   padding-right: 5px;
@@ -243,13 +309,23 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+<<<<<<< HEAD
   background: rgba(255, 255, 255, 0.7);
+=======
+  background-color: rgba(0, 0, 0, 0.5);
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
   margin-bottom: 10px;
 }
 
 #timer {
+<<<<<<< HEAD
   color: black;
   font-size: 1.3rem;
+=======
+  color: #ffcb05;
+  font-size: 1rem;
+  font-family: "Poppins";
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
   display: flex;
   align-items: center;
   justify-content: center;
@@ -262,6 +338,32 @@ body {
   padding-top: 10px;
 }
 
+<<<<<<< HEAD
+=======
+.memory-card.shake {
+  animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-13px);
+  }
+  40% {
+    transform: translateX(13px);
+  }
+  60% {
+    transform: translateX(-8px);
+  }
+  80% {
+    transform: translateX(8px);
+  }
+}
+
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 /* El tablero */
 .memory-game {
   width: 640px;
@@ -305,8 +407,13 @@ body {
 
 .back-face {
   position: absolute;
+<<<<<<< HEAD
   width: 125px;
   height: 125px;
+=======
+  width: 100px;
+  height: 100px;
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
   border-radius: 100px;
   backface-visibility: hidden;
   background-color: rgba(0, 0, 255, 0);
@@ -318,31 +425,70 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
+<<<<<<< HEAD
   width: 125px;
   height: 125px;
+=======
+  width: 135px;
+  height: 135px;
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
   border-radius: 100px;
   backface-visibility: hidden;
   background-color: rgba(0, 0, 255, 0);
 }
 
+<<<<<<< HEAD
+=======
+.card.shake {
+  animation: shake 0.35s ease-in-out;
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-13px);
+  }
+  40% {
+    transform: translateX(13px);
+  }
+  60% {
+    transform: translateX(-8px);
+  }
+  80% {
+    transform: translateX(8px);
+  }
+}
+
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 /* footer */
 .game-results {
   display: flex;
   align-items: center;
   justify-content: center;
+<<<<<<< HEAD
   flex-direction: column;
+=======
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
   width: 640px;
   height: 80px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
   overflow: hidden;
   font-size: 1.5rem;
+=======
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 }
 .game-log {
   display: flex;
   justify-content: center;
+<<<<<<< HEAD
   flex-direction: column;
+=======
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
   width: 100%;
   height: 100%;
   padding: 0.5rem;
@@ -350,7 +496,10 @@ body {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
   overflow: hidden;
+=======
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 }
 
 /*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
@@ -402,7 +551,11 @@ body {
   body {
     min-height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+<<<<<<< HEAD
       url("/img/vapor/background-image.svg");
+=======
+      url("/img/Pokemon_IMG/pokemonBgMovil.jpg");
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

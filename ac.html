@@ -6,15 +6,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/ac.css" />
+<<<<<<< HEAD
   <link rel="icon" href="/img/Pokemon_IMG/ball.svg" type="ball.svg" />
   <title>Pokemon Memory Game</title>
+=======
+  <link rel="icon" href="/img/ac/ac-carta.png" type="ac-carta.png" />
+  <title>Animal Crossing Memory Game</title>
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 </head>
 
 <body>
   <header>
+<<<<<<< HEAD
     <a href="index.html" class="back-btn"><img src="/img/Pokemon_IMG/button_back.svg" class="image-button"></a>
     
     <audio id="myAudio" src="audio/Pokemon/pokemon-opening.mp3"></audio>
+=======
+    <a href="index.html" class="back-btn"><img src="/img/ac/button_back.png" class="image-button"></a>
+    
+    <audio id="myAudio" src="audio/ac/bgMusic"></audio>
+    <audio id="cardFlip" src="audio/ac/flip.mp3"></audio>
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
     <button class="musicGame"onclick="playPause()">
       <img id="mute" style="display: none;" src="/img/mute.png" />
       <img id="unmute" src="/img/unmute.png" />
@@ -31,6 +43,7 @@
 
 
         <div class="popup-box">
+<<<<<<< HEAD
           <h2 id="welcomeText">Welcome to Pokemon Memory!</h2>
           <h2 id="finishText" style="display: none">Your brain is sharper than a Pikachu's Thunderbolt! </h2>
           <h2 id="finishTextLose" style="display: none">OHHH NOOO! The Team Rocket steal your Pokemons ! </h2>
@@ -38,6 +51,15 @@
             Play again Message
           </p>
           <p id="startMessage">Ready to catch 'em all?<br>Choose your level:</p>
+=======
+          <h2 id="welcomeText">Welcome to Animal Crossing Memory!</h2>
+          <h2 id="finishText" style="display: none"> You are the most popular villager! </h2>
+          <h2 id="finishTextLose" style="display: none">OHHH NOOO! The villagers moved away from you! </h2>
+          <p id="playAgainMessage" style="display: none">
+            Play again Message
+          </p>
+          <p id="startMessage">Find your furry friends!<br>Choose your level:</p>
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
           <label>
             <input type="radio" name="selector" value="easy" checked />
             Easy
@@ -60,29 +82,46 @@
           </label>
         </div>
         <p id="playAgainMessage" style="display: none"></p>
+<<<<<<< HEAD
         <button id="startBtn"><img src="/img/Pokemon_IMG/button_start.svg" class="image-button"></button>
         
        
         <button id="playAgainBtn" style="display: none;"><img src="/img/Pokemon_IMG/button_play_again.svg"
             class="image-button-again"></button></button>
+=======
+        <button id="startBtn"><img src="/img/ac/button_start.png" class="image-button"></button>
+        
+       
+        <button id="playAgainBtn" style="display: none;"><img src="/img/ac/button_play_again.png"
+            class="image-button-again"></button>
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
       </div>
     </div>
 
     <!-- Game Metrics and this things-->
     <div class="game-metrics">
       <div id="vs" style="display: none">
+<<<<<<< HEAD
         <div id="score-player" class="score-player turn"><img src="/img/Pokemon_IMG/tries.svg" class="image-score">
+=======
+        <div id="score-player" class="score-player turn"><img src="/img/ac/tries.png" class="image-score">
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
           <p>YOU: <span id="huma-matches">0</span></p>
         </div>
         <div>
           <p>VS</p>
         </div>
         <div id="score-computer" class="score-computer">
+<<<<<<< HEAD
           <img src="/img/Pokemon_IMG/Points_4.svg" class="image-score">
+=======
+          <img src="/img/ac/points.png" class="image-score">
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
           <p>MACHINE: <span id="aiMatches">0</span></p>
         </div>
       </div>
       <div id="score">
+<<<<<<< HEAD
         <div class="score-tries"><img src="/img/Pokemon_IMG/tries.svg" class="image-score">
           <p>TRIES: <span id="tries">0</span></p>
         </div>
@@ -92,11 +131,26 @@
         </div>
         <div class="score-misses">
           <img src="/img/Pokemon_IMG/misses.svg" class="image-score">
+=======
+        <div class="score-tries"><img src="/img/ac/tries.png" class="image-score">
+          <p>TRIES: <span id="tries">0</span></p>
+        </div>
+        <div class="score-matches">
+          <img src="/img/ac/points.png" class="image-score">
+          <p>MATCHES: <span id="matches">0</span></p>
+        </div>
+        <div class="score-misses">
+          <img src="/img/ac/misses.png" class="image-score">
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
           <p>MISSES: <span id="misses">0</span></p>
         </div>
       </div>
       <div id="timer-container">
+<<<<<<< HEAD
         <div><img src="/img/Pokemon_IMG/timer.svg" class="image-timer"></div>
+=======
+        <div><img src="/img/ac/timer.png" class="image-timer"></div>
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
         <div id="timer">
           <p>00:00</p>
         </div>
@@ -105,6 +159,7 @@
     
     <div class="memory-game">
       <!-- Pair 1 -->
+<<<<<<< HEAD
       <div class="memory-card" data-framework="catAttack">
         <img class="front-face" src="img/Pokemon_IMG/img-1.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
@@ -202,6 +257,105 @@
       <div class="memory-card" data-framework="catKnit">
         <img class="front-face" src="img/Pokemon_IMG/img-10.svg" alt="cat attack" />
         <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
+=======
+      <div class="memory-card" data-framework="ac-1">
+        <img class="front-face" src="img/ac/ac-1.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-1">
+        <img class="front-face" src="img/ac/ac-1.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 2 -->
+      <div class="memory-card" data-framework="ac-2">
+        <img class="front-face" src="img/ac/ac-2.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-2">
+        <img class="front-face" src="img/ac/ac-2.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 3 -->
+      <div class="memory-card" data-framework="ac-3">
+        <img class="front-face" src="img/ac/ac-3.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-3">
+        <img class="front-face" src="img/ac/ac-3.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 4 -->
+      <div class="memory-card" data-framework="ac-4">
+        <img class="front-face" src="img/ac/ac-4.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-4">
+        <img class="front-face" src="img/ac/ac-4.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 5 -->
+      <div class="memory-card" data-framework="ac-5">
+        <img class="front-face" src="img/ac/ac-5.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-5">
+        <img class="front-face" src="img/ac/ac-5.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 6 -->
+      <div class="memory-card" data-framework="ac-6">
+        <img class="front-face" src="img/ac/ac-6.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-6">
+        <img class="front-face" src="img/ac/ac-6.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 7 -->
+      <div class="memory-card" data-framework="ac-7">
+        <img class="front-face" src="img/ac/ac-7.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-7">
+        <img class="front-face" src="img/ac/ac-7.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 8 -->
+      <div class="memory-card" data-framework="ac-8">
+        <img class="front-face" src="img/ac/ac-8.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-8">
+        <img class="front-face" src="img/ac/ac-8.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 9 -->
+      <div class="memory-card" data-framework="ac-9">
+        <img class="front-face" src="img/ac/ac-9.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-9">
+        <img class="front-face" src="img/ac/ac-9.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 10 -->
+      <div class="memory-card" data-framework="ac-10">
+        <img class="front-face" src="img/ac/ac-10.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-10">
+        <img class="front-face" src="img/ac/ac-10.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
       </div>
     </div>
     </div>
