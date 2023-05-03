@@ -170,6 +170,24 @@ body {
     border-bottom-right-radius: 50%;
   }
 
+<<<<<<< HEAD
+/*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+  ▒▒ GENERAL PLAYER STATS ▒▒
+  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒*/
+
+  main>div {
+    color: white;
+    font-weight: 600;
+    font-size: 1.3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+=======
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 /*▒▒▒▒▒▒▒▒▒▒▒▒
   ▒▒ FOOTER ▒▒
   ▒▒▒▒▒▒▒▒▒▒▒▒*/
@@ -182,6 +200,10 @@ body {
   }
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 /*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
   ▒▒ VERSION TABLET ▒▒
   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒*/
@@ -252,6 +274,23 @@ body {
     filter: drop-shadow(5px 0 0 var(--naranja-dbz)) drop-shadow(0 5px 0 var(--naranja-dbz)) drop-shadow(-5px 0 0 var(--naranja-dbz)) drop-shadow(0 -5px 0 var(--naranja-dbz));
   }
 
+<<<<<<< HEAD
+/*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+  ▒▒ GENERAL PLAYER STATS ▒▒
+  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒*/
+
+  main>div {
+    color: rgba(255, 252, 102, 0.8);
+    text-shadow: -1px -1px 0 rgba(254, 163, 171, 0.595), 1px -1px 0 rgba(254, 163, 171, 0.595), -1px 1px 0 rgba(254, 163, 171, 0.595), 1px 1px 0 rgba(254, 163, 171, 0.595);
+    font-weight:900;
+    font-size: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+  }
+
+=======
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 /*▒▒▒▒▒▒▒▒▒▒▒▒
   ▒▒ FOOTER ▒▒
   ▒▒▒▒▒▒▒▒▒▒▒▒*/
@@ -265,6 +304,49 @@ body {
 
 }
 
+<<<<<<< HEAD
+/*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+  ▒▒ VERSION DESKTOP ▒▒
+  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒*/
+
+@media (min-width: 1024px){
+
+
+/*▒▒▒▒▒▒▒▒▒▒▒▒
+  ▒▒ HEADER ▒▒
+  ▒▒▒▒▒▒▒▒▒▒▒▒*/
+
+  header {
+    margin: 0.5rem 6rem 0rem 6rem;
+    background: rgba(254, 163, 170, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+    color: rgba(255, 252, 102, 0.8);
+    text-shadow: -1px -1px 0 rgba(254, 163, 171, 0.595), 1px -1px 0 rgba(254, 163, 171, 0.595), -1px 1px 0 rgba(254, 163, 171, 0.595), 1px 1px 0 rgba(254, 163, 171, 0.595);
+  }
+
+/*▒▒▒▒▒▒▒▒▒▒
+  ▒▒ BODY ▒▒
+  ▒▒▒▒▒▒▒▒▒▒*/
+
+  body {
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    position: absolute;
+    display: none;
+  }
+
+=======
 
 /*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
   ▒▒ VERSION DESKTOP ▒▒
@@ -307,11 +389,68 @@ body {
     display: none;
   }
 
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
   form {
     display: grid;
     grid-template-columns: repeat(2, 50%);
     grid-template-rows: repeat(2, auto);
   }
+<<<<<<< HEAD
+
+  a {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  img {
+    width: 40%;
+  }
+
+  img:hover{
+    transform: scale(1.1);
+  }
+  
+  #acimg:hover {
+    filter: drop-shadow(5px 0 0 var(--verde-ac)) drop-shadow(0 5px 0 var(--verde-ac)) drop-shadow(-5px 0 0 var(--verde-ac)) drop-shadow(0 -5px 0 var(--verde-ac));
+  }
+  #vaporwaveimg:hover {
+    filter: drop-shadow(5px 0 0 var(--morado-vaporwave)) drop-shadow(0 5px 0 var(--morado-vaporwave)) drop-shadow(-5px 0 0 var(--morado-vaporwave)) drop-shadow(0 -5px 0 var(--morado-vaporwave));
+  }
+  #pokemonimg:hover {
+    filter: drop-shadow(5px 0 0 var(--rojo-pokemon)) drop-shadow(0 5px 0 var(--rojo-pokemon)) drop-shadow(-5px 0 0 var(--rojo-pokemon)) drop-shadow(0 -5px 0 var(--rojo-pokemon));
+  }
+  #dbzimg:hover {
+    filter: drop-shadow(5px 0 0 var(--naranja-dbz)) drop-shadow(0 5px 0 var(--naranja-dbz)) drop-shadow(-5px 0 0 var(--naranja-dbz)) drop-shadow(0 -5px 0 var(--naranja-dbz));
+  }
+
+/*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+  ▒▒ GENERAL PLAYER STATS ▒▒
+  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒*/
+
+  main>div {
+    color: rgba(255, 252, 102, 0.8);
+    text-shadow: -1px -1px 0 rgba(254, 163, 171, 0.595), 1px -1px 0 rgba(254, 163, 171, 0.595), -1px 1px 0 rgba(254, 163, 171, 0.595), 1px 1px 0 rgba(254, 163, 171, 0.595);
+    font-weight:900;
+    font-size: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+  }
+
+/*▒▒▒▒▒▒▒▒▒▒▒▒
+  ▒▒ FOOTER ▒▒
+  ▒▒▒▒▒▒▒▒▒▒▒▒*/
+
+  footer {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 0.3rem;
+  }
+
+}
+=======
 
   a {
     display: flex;
@@ -353,3 +492,4 @@ body {
   }
 
 }
+>>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
