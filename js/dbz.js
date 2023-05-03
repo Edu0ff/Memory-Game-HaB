@@ -113,6 +113,8 @@ const soloModeTrueMatch = () => {
     matchesSpan.textContent = `${matches} / ${numOfPair}`;
     tries += 1;
     triesSpan.textContent = tries;
+    const musicAcierto = new Audio ("audio/audio-dbz/radar-dragonball.mp3");
+    musicAcierto.play("audio/audio-dbz/radar-dragonball.mp3");
 };
 
 // whe a match is false solo Mode
@@ -126,6 +128,8 @@ const soloModeFalseMatch = () => {
         missesSpan.textContent = misses;
         tries += 1;
         triesSpan.textContent = tries;
+        const musicFallo = new Audio ("audio/audio-dbz/ball-dragon-gt-jump.mp3");
+        musicFallo.play("audio/audio-dbz/ball-dragon-gt-jump.mp3");
     }, 1500);
 };
 
@@ -227,9 +231,26 @@ function msToTime(duration) {
 
 // Calculate the final score
 function calculateFinalScore(elapsedTime, tries) {
+  let levelModificator;
+  let modeModificator;
+
+  if (selectedDificulty === 'easy') {
+    levelModificator = 2;
+  } else if (selectedDificulty === 'medium') {
+    levelModificator = 1.5;
+  } else if (selectedDificulty === 'hard') {
+    levelModificator = 1;
+  }
+
+  if (selectedDificulty === 'solo') {
+    modeModificator = 1.5;
+  } else {
+    modeModificator = 1;
+  }
+
   const baseScore = 1000;
-  const timePenalty = (elapsedTime/1000)*10;
-  const triesPenalty = tries * 2;
+  const timePenalty = (elapsedTime/1000)(10 * modeModificator);
+  const triesPenalty = tries * levelModificator;
   const finalScore = baseScore - timePenalty - triesPenalty;
   return finalScore > 0 ? finalScore : 0;
 };
@@ -533,4 +554,17 @@ function playPause() {
   }
 }
 
+const audio = new Audio("audio/audio-dbz/radar-dragonball.mp3");
 
+const btn = document.querySelector("#startBtn");
+btn.addEventListener('click', function() {
+  audio.play(); 
+});
+
+
+const audio2 = new Audio("audio/audio-dbz/bola_de_dragon_z_prologo_del_capitulo.mp3");
+
+const btn2 = document.querySelector("#playAgainBtn");
+btn2.addEventListener('click', function() {
+  audio2.play(); 
+});
