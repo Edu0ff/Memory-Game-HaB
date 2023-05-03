@@ -402,7 +402,7 @@ body {
   margin-left: 5px;
   margin-right: 5px;
 }
-@-webkit-keyframes GameResults {
+@keyframes GameResults {
   0%, 40% {
   transform: translate(0px, 0em);
   }
