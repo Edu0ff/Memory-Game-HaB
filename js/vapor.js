@@ -151,7 +151,7 @@ const shuffle = () => {
 const finishGame = () => {
   if (matches === numOfPair) {
     stopTimer();
-    resetFlipCardEventListener();
+    //resetFlipCardEventListener();
     finishPopUpSolo();
     gameLogCreator();
   }
@@ -227,23 +227,6 @@ function msToTime(duration) {
 
 // Calculate the final score
 function calculateFinalScore(elapsedTime, tries) {
-  let levelModificator;
-  let modeModificator;
-
-  if (selectedDificulty === 'easy') {
-    levelModificator = 2;
-  } else if (selectedDificulty === 'medium') {
-    levelModificator = 1.5;
-  } else if (selectedDificulty === 'hard') {
-    levelModificator = 1;
-  }
-
-  if (selectedDificulty === 'solo') {
-    modeModificator = 1.5;
-  } else {
-    modeModificator = 1;
-  }
-  
   const baseScore = 1000;
   const timePenalty = (elapsedTime/1000)*(10*modeModificator);
   const triesPenalty = tries * levelModificator;
@@ -331,7 +314,6 @@ function aiflipCard() {
 const aiCheckMatch = () => {
   if (turn === 'human') {
     if (firstCard.dataset.framework === secondCard.dataset.framework) {
-      console.log('iguales humano');
       firstCard.removeEventListener('click', aiflipCard);
       secondCard.removeEventListener('click', aiflipCard);
       humaMatches += 1;
@@ -351,7 +333,6 @@ const aiCheckMatch = () => {
     }, 1700);
    } else { 
     if (firstCard.dataset.framework === secondCard.dataset.framework) {
-    console.log('iguales ia');
     firstCard.removeEventListener('click', aiflipCard);
     secondCard.removeEventListener('click', aiflipCard);
     aiMatches += 1;
@@ -380,7 +361,8 @@ function selectRandomCard(unflippedCards) {
 //ai turn
 const aiTurn = () => {
   if (turn === "human") {
-    return;
+    //return;
+    aiFinishGame();
   } else {
     scorePlayerMetric.classList.remove('turn')
     scoreComputerMetric.classList.add('turn');
@@ -524,6 +506,7 @@ playAgainBtn.addEventListener("click", () => {
   resetStats();
   startTimer();
   shuffle();
+  initGame();
 });
 
 
