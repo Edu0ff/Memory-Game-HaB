@@ -10,7 +10,9 @@ This is our card matching game with 4 different themes, one for each member of t
 **DBZ** 🐉 & 
 **Vaporwave** 🌸  
 3 difficulties: Easy, medium or hard.  
-Background music and sound effects 🎶
+Solo mode and against the machine mode if you are feeling social!  
+Background music and sound effects 🎶  
+Responsive design.  
 
 ## Screenshots
 
@@ -30,7 +32,7 @@ Background music and sound effects 🎶
     4. You can check your game results in the bottom part of the panel.
 ## Tech Stack
 
-Made with HTML5, CSS3 and JavaScript
+Made with HTML5, CSS3 and Vanilla JavaScript
 
 
 ## Authors
