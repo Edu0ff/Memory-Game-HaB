@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/ac.css" />
+  <link rel="icon" href="/img/ac/ac-carta.png" type="ac-carta.png" />
+  <title>Animal Crossing Memory Game</title>
+</head>
+
+<body>
+  <header>
+    <a href="index.html" class="back-btn"><img src="/img/ac/button_back.png" class="image-button"></a>
+    
+    <audio id="myAudio" src="audio/ac/bgMusic"></audio>
+    <button class="musicGame"onclick="playPause()">
+      <img id="mute" style="display: none;" src="/img/mute.png" />
+      <img id="unmute" src="/img/unmute.png" />
+    </button>
+    
+  </header>
+  
+
+  <!-- Entorno completo -->
+  <section class="memory-board">
+    <!-- Pop up - Aquí hay que hacer Pop up para Start y pop up para Play again-->
+    <div class="overlay">
+      <div class="popup">
+
+
+        <div class="popup-box">
+          <h2 id="welcomeText">Welcome to Animal Crossing Memory!</h2>
+          <h2 id="finishText" style="display: none"> You are the most popular villager! </h2>
+          <h2 id="finishTextLose" style="display: none">OHHH NOOO! The villagers moved away from you! </h2>
+          <p id="playAgainMessage" style="display: none">
+            Play again Message
+          </p>
+          <p id="startMessage">Find your furry friends!<br>Choose your level:</p>
+          <label>
+            <input type="radio" name="selector" value="easy" checked />
+            Easy
+          </label>
+          <label>
+            <input type="radio" name="selector" value="medium" /> Medium
+          </label>
+          <label>
+            <input type="radio" name="selector" value="hard" /> Hard
+          </label>
+        </div>
+        <p>Choose your Mode</p>
+        <div class="popup-box">
+          <label>
+            <input type="radio" name="mode" value="solo" checked />
+            Solo Mode
+          </label>
+          <label>
+            <input type="radio" name="mode" value="ai" /> AI Mode
+          </label>
+        </div>
+        <p id="playAgainMessage" style="display: none"></p>
+        <button id="startBtn"><img src="/img/ac/button_play_again.png" class="image-button"></button>
+        
+       
+        <button id="playAgainBtn" style="display: none;"><img src="/img/ac/button_play_again.png"
+            class="image-button-again"></button></button>
+      </div>
+    </div>
+
+    <!-- Game Metrics and this things-->
+    <div class="game-metrics">
+      <div id="vs" style="display: none">
+        <div id="score-player" class="score-player turn"><img src="/img/ac/tries.png" class="image-score">
+          <p>YOU: <span id="huma-matches">0</span></p>
+        </div>
+        <div>
+          <p>VS</p>
+        </div>
+        <div id="score-computer" class="score-computer">
+          <img src="/img/ac/points.png" class="image-score">
+          <p>MACHINE: <span id="aiMatches">0</span></p>
+        </div>
+      </div>
+      <div id="score">
+        <div class="score-tries"><img src="/img/ac/tries.png" class="image-score">
+          <p>TRIES: <span id="tries">0</span></p>
+        </div>
+        <div class="score-matches">
+          <img src="/img/ac/points.png" class="image-score">
+          <p>MATCHES: <span id="matches">0</span></p>
+        </div>
+        <div class="score-misses">
+          <img src="/img/ac/misses.png" class="image-score">
+          <p>MISSES: <span id="misses">0</span></p>
+        </div>
+      </div>
+      <div id="timer-container">
+        <div><img src="/img/ac/timer.png" class="image-timer"></div>
+        <div id="timer">
+          <p>00:00</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="memory-game">
+      <!-- Pair 1 -->
+      <div class="memory-card" data-framework="ac-1">
+        <img class="front-face" src="img/ac/ac-1.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-1">
+        <img class="front-face" src="img/ac/ac-1.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 2 -->
+      <div class="memory-card" data-framework="ac-2">
+        <img class="front-face" src="img/ac/ac-2.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-2">
+        <img class="front-face" src="img/ac/ac-2.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 3 -->
+      <div class="memory-card" data-framework="ac-3">
+        <img class="front-face" src="img/ac/ac-3.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-3">
+        <img class="front-face" src="img/ac/ac-3.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 4 -->
+      <div class="memory-card" data-framework="ac-4">
+        <img class="front-face" src="img/ac/ac-4.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-4">
+        <img class="front-face" src="img/ac/ac-4.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 5 -->
+      <div class="memory-card" data-framework="ac-5">
+        <img class="front-face" src="img/ac/ac-5.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-5">
+        <img class="front-face" src="img/ac/ac-5.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 6 -->
+      <div class="memory-card" data-framework="ac-6">
+        <img class="front-face" src="img/ac/ac-6.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-6">
+        <img class="front-face" src="img/ac/ac-6.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 7 -->
+      <div class="memory-card" data-framework="ac-7">
+        <img class="front-face" src="img/ac/ac-7.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-7">
+        <img class="front-face" src="img/ac/ac-7.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 8 -->
+      <div class="memory-card" data-framework="ac-8">
+        <img class="front-face" src="img/ac/ac-8.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-8">
+        <img class="front-face" src="img/ac/ac-8.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 9 -->
+      <div class="memory-card" data-framework="ac-9">
+        <img class="front-face" src="img/ac/ac-9.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-9">
+        <img class="front-face" src="img/ac/ac-9.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+
+      <!-- Pair 10 -->
+      <div class="memory-card" data-framework="ac-10">
+        <img class="front-face" src="img/ac/ac-10.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+      <div class="memory-card" data-framework="ac-10">
+        <img class="front-face" src="img/ac/ac-10.png" alt="Animal Crossing Villager" />
+        <img class="back-face" src="/img/ac/ac-carta.png" alt="Animal Crossing leaf" />
+      </div>
+    </div>
+    </div>
+    
+  </section>
+  <footer class="game-results">
+    <div id="game-log" class="game-log">
+      <p>Game Results:</p>
+    </div>
+  </footer>
+  <script src="js/ac.js"></script>
+</body>
+
+</html>
