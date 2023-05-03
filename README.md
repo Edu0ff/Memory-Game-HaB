@@ -50,7 +50,7 @@ Css3: flexbox, grid, perspective, backface-visibility, transitions, animations..
 
 - Jorge García  
 - Jorge Cidre  
-- Edu  
-- Miguel
+- Edu Loiola  
+- Miguel Ortigueira
 
 Thanks! 🫶
