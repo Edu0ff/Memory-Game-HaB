@@ -41,15 +41,12 @@ let elapsedTime = 0;
 let gameNumber = 0;
 let gameResults = [];
 
-<<<<<<< HEAD
-=======
 //Audio Variables
 const flipCardAudio = new Audio ("audio/ac/flip.mp3");
 const musicAcierto = new Audio ("audio/ac/match.mp3");
 const musicFallo = new Audio ("audio/ac/miss.mp3");
 
 
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 //-------------------- HTML SELECTORS--------------------//
 
 //Selecting the cards
@@ -91,14 +88,9 @@ function flipCard() {
   if (lockBoard || (selectedGameMode === 'ai')) return;
   this.classList.add('flip');
   if (!hasFlippedCard) {
-<<<<<<< HEAD
-    hasFlippedCard = true;
-    firstCard = this;
-=======
     flipCardAudio.play();
     hasFlippedCard = true;
     firstCard = this; 
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
   } else {
     hasFlippedCard = false;
     secondCard = this;
@@ -113,20 +105,12 @@ function addFlipCardEventListeners() {
 
 //function to remove the flip funtion to all the cards
 
-<<<<<<< HEAD
-const resetFlipCardEventListener = () => {
-  cards.forEach(card => {card.classList.remove('flip');
-  card.addEventListener('click', flipCard);
-  });
-};
-=======
 function resetFlipCardEventListener() {
   cards.forEach(card => {
     card.classList.remove('flip');
     card.addEventListener('click', flipCard);
   });
 }
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 
 // whe a match is true solo Mode
 
@@ -137,16 +121,10 @@ const soloModeTrueMatch = () => {
     matchesSpan.textContent = `${matches} / ${numOfPair}`;
     tries += 1;
     triesSpan.textContent = tries;
-<<<<<<< HEAD
-};
-
-// whe a match is false solo Mode
-=======
     musicAcierto.play();
 };
 
 // when a match is false solo Mode
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 const soloModeFalseMatch = () => {
       lockBoard = true;
       setTimeout(() => {
@@ -157,10 +135,7 @@ const soloModeFalseMatch = () => {
         missesSpan.textContent = misses;
         tries += 1;
         triesSpan.textContent = tries;
-<<<<<<< HEAD
-=======
         musicFallo.play();
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
     }, 1500);
 };
 
@@ -196,11 +171,7 @@ const finishGame = () => {
 const gameLogCreator = () => {
     gameNumber++
     gameResults.push({ game: gameNumber, mode: selectedGameMode, dificulty: selectedDificulty, score: finalScore});
-<<<<<<< HEAD
-    let resultString = ` Game ${gameNumber}:Mode ${selectedGameMode} - Dificulty ${selectedDificulty} - Score ${finalScore} `;
-=======
     let resultString = ` Game ${gameNumber}: Mode ${selectedGameMode} - Dificulty ${selectedDificulty} - Score ${finalScore} `;
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
     displayGameLog(resultString);
 
 }
@@ -523,11 +494,7 @@ startBtn.addEventListener("click", () => {
   initGame();
 });
 
-<<<<<<< HEAD
-//Selected Dificuklty level
-=======
 //Selected Dificulty level
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 selectorElems.forEach((elem) => {
   elem.addEventListener("click", () => {
     selectedDificulty = elem.value;
@@ -575,5 +542,4 @@ function playPause() {
     unmute.style.display = "";
   }
 }
-
 

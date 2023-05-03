@@ -6,34 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/vapor.css" />
-<<<<<<< HEAD
   <link rel="icon" href="/img/vapor/computer.svg" type="ball.svg" />
   <title>Vapor Wave Memory</title>
-=======
-  <link rel="icon" href="/img/Pokemon_IMG/ball.svg" type="ball.svg" />
-  <title>Pokemon Memory Game</title>
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
 </head>
 
 <body>
   <header>
-<<<<<<< HEAD
     <a href="index.html" class="back-btn"><img src="/img/vapor/button_back.png" class="image-button"></a>
     
     <audio id="myAudio" src="audio/vapor/vapor.mp3"></audio>
-=======
-    <a href="index.html" class="back-btn"><img src="/img/Pokemon_IMG/button_back.svg" class="image-button"></a>
-    
-    <audio id="myAudio" src="audio/Pokemon/pokemon-opening.mp3"></audio>
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
     <button class="musicGame"onclick="playPause()">
       <img id="mute" style="display: none;" src="/img/mute.png" />
       <img id="unmute" src="/img/unmute.png" />
     </button>
-<<<<<<< HEAD
-=======
-    
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
   </header>
   
 
@@ -45,13 +30,13 @@
 
 
         <div class="popup-box">
-          <h2 id="welcomeText">Welcome to Pokemon Memory!</h2>
-          <h2 id="finishText" style="display: none">Your brain is sharper than a Pikachu's Thunderbolt! </h2>
-          <h2 id="finishTextLose" style="display: none">OHHH NOOO! The Team Rocket steal your Pokemons ! </h2>
+          <h2 id="welcomeText">Welcome to Vaporwave Memory Challenge!</h2>
+          <h2 id="finishText" style="display: none">Congrats!! Level Cleared</h2>
+          <h2 id="finishTextLose" style="display: none">OHHH NOOO! Our Nokia has beaten you!</h2>
           <p id="playAgainMessage" style="display: none">
             Play again Message
           </p>
-          <p id="startMessage">Ready to catch 'em all?<br>Choose your level:</p>
+          <p id="startMessage">Are You Ready?<br>Choose your level:</p>
           <label>
             <input type="radio" name="selector" value="easy" checked />
             Easy
@@ -74,17 +59,10 @@
           </label>
         </div>
         <p id="playAgainMessage" style="display: none"></p>
-<<<<<<< HEAD
         <button id="startBtn"><img src="/img/vapor/button_start.png" class="image-button"></button>
         
        
         <button id="playAgainBtn" style="display: none;"><img src="/img/vapor/button_play_again.png"
-=======
-        <button id="startBtn"><img src="/img/Pokemon_IMG/button_start.svg" class="image-button"></button>
-        
-       
-        <button id="playAgainBtn" style="display: none;"><img src="/img/Pokemon_IMG/button_play_again.svg"
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
             class="image-button-again"></button></button>
       </div>
     </div>
@@ -92,27 +70,18 @@
     <!-- Game Metrics and this things-->
     <div class="game-metrics">
       <div id="vs" style="display: none">
-<<<<<<< HEAD
         <div id="score-player" class="score-player turn"><img src="/img/vapor/face.png" class="image-score">
-=======
-        <div id="score-player" class="score-player turn"><img src="/img/Pokemon_IMG/tries.svg" class="image-score">
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
           <p>YOU: <span id="huma-matches">0</span></p>
         </div>
         <div>
           <p>VS</p>
         </div>
         <div id="score-computer" class="score-computer">
-<<<<<<< HEAD
           <img src="/img/vapor/nokia.png" class="image-score">
-=======
-          <img src="/img/Pokemon_IMG/Points_4.svg" class="image-score">
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
-          <p>MACHINE: <span id="aiMatches">0</span></p>
+          <p>A NOKIA: <span id="aiMatches">0</span></p>
         </div>
       </div>
       <div id="score">
-<<<<<<< HEAD
         <div class="score-tries"><img src="/img/vapor/vapor4.png" class="image-score">
           <p>TRIES: <span id="tries">0</span></p>
         </div>
@@ -122,26 +91,11 @@
         </div>
         <div class="score-misses">
           <img src="/img/vapor/Daco_5.png" class="image-score">
-=======
-        <div class="score-tries"><img src="/img/Pokemon_IMG/tries.svg" class="image-score">
-          <p>TRIES: <span id="tries">0</span></p>
-        </div>
-        <div class="score-matches">
-          <img src="/img/Pokemon_IMG/Points_4.svg" class="image-score">
-          <p>MATCHES: <span id="matches">0</span></p>
-        </div>
-        <div class="score-misses">
-          <img src="/img/Pokemon_IMG/misses.svg" class="image-score">
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
           <p>MISSES: <span id="misses">0</span></p>
         </div>
       </div>
       <div id="timer-container">
-<<<<<<< HEAD
         <div><img src="/img/vapor/timer.svg" class="image-timer"></div>
-=======
-        <div><img src="/img/Pokemon_IMG/timer.svg" class="image-timer"></div>
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
         <div id="timer">
           <p>00:00</p>
         </div>
@@ -150,7 +104,6 @@
     
     <div class="memory-game">
       <!-- Pair 1 -->
-<<<<<<< HEAD
       <div class="memory-card" data-framework="vapor1">
         <img class="front-face" src="img/vapor/vapor1.png" alt="cat attack" />
         <img class="back-face" src="/img/vapor/vapor_back.png" alt="Pokemon Ball" />
@@ -248,105 +201,6 @@
       <div class="memory-card" data-framework="vapor13">
         <img class="front-face" src="img/vapor/vapor13.png" alt="cat attack" />
         <img class="back-face" src="/img/vapor/vapor_back.png" alt="Pokemon Ball" />
-=======
-      <div class="memory-card" data-framework="catAttack">
-        <img class="front-face" src="img/Pokemon_IMG/img-1.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-      <div class="memory-card" data-framework="catAttack">
-        <img class="front-face" src="img/Pokemon_IMG/img-1.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-
-      <!-- Pair 2 -->
-      <div class="memory-card" data-framework="catDjPizza">
-        <img class="front-face" src="img/Pokemon_IMG/img-2.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-      <div class="memory-card" data-framework="catDjPizza">
-        <img class="front-face" src="img/Pokemon_IMG/img-2.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-
-      <!-- Pair 3 -->
-      <div class="memory-card" data-framework="catSushi">
-        <img class="front-face" src="img/Pokemon_IMG/img-3.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-      <div class="memory-card" data-framework="catSushi">
-        <img class="front-face" src="img/Pokemon_IMG/img-3.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-
-      <!-- Pair 4 -->
-      <div class="memory-card" data-framework="catPanic">
-        <img class="front-face" src="img/Pokemon_IMG/img-4.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-      <div class="memory-card" data-framework="catPanic">
-        <img class="front-face" src="img/Pokemon_IMG/img-4.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-
-      <!-- Pair 5 -->
-      <div class="memory-card" data-framework="catGod">
-        <img class="front-face" src="img/Pokemon_IMG/img-5.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-      <div class="memory-card" data-framework="catGod">
-        <img class="front-face" src="img/Pokemon_IMG/img-5.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-
-      <!-- Pair 6 -->
-      <div class="memory-card" data-framework="catPizzaEater">
-        <img class="front-face" src="img/Pokemon_IMG/img-6.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-      <div class="memory-card" data-framework="catPizzaEater">
-        <img class="front-face" src="img/Pokemon_IMG/img-6.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-
-      <!-- Pair 7 -->
-      <div class="memory-card" data-framework="catLaser">
-        <img class="front-face" src="img/Pokemon_IMG/img-7.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-      <div class="memory-card" data-framework="catLaser">
-        <img class="front-face" src="img/Pokemon_IMG/img-7.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-
-      <!-- Pair 8 -->
-      <div class="memory-card" data-framework="catFinger">
-        <img class="front-face" src="img/Pokemon_IMG/img-8.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-      <div class="memory-card" data-framework="catFinger">
-        <img class="front-face" src="img/Pokemon_IMG/img-8.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-
-      <!-- Pair 9 -->
-      <div class="memory-card" data-framework="catOvni">
-        <img class="front-face" src="img/Pokemon_IMG/img-9.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-      <div class="memory-card" data-framework="catOvni">
-        <img class="front-face" src="img/Pokemon_IMG/img-9.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-
-      <!-- Pair 10 -->
-      <div class="memory-card" data-framework="catKnit">
-        <img class="front-face" src="img/Pokemon_IMG/img-10.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
-      </div>
-      <div class="memory-card" data-framework="catKnit">
-        <img class="front-face" src="img/Pokemon_IMG/img-10.svg" alt="cat attack" />
-        <img class="back-face" src="/img/Pokemon_IMG/ball.svg" alt="Pokemon Ball" />
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
       </div>
     </div>
     </div>
@@ -354,13 +208,7 @@
   </section>
   <footer class="game-results">
     <div id="game-log" class="game-log">
-<<<<<<< HEAD
-      <h3>Game Results</h3>
-      <ul id="game-log-list">
-      </ul>
-=======
       <p>Game Results:</p>
->>>>>>> d5c2ee552b7b61731c16a13cf65c280eef25d79d
     </div>
   </footer>
   <script src="js/vapor.js"></script>
