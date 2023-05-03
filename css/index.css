@@ -175,7 +175,12 @@ body {
   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒*/
 
   main>div {
+<<<<<<< HEAD
     color: white;
+=======
+    color: rgba(255, 252, 102, 0.8);
+    text-shadow: -1px -1px 0 rgba(254, 163, 171, 0.595), 1px -1px 0 rgba(254, 163, 171, 0.595), -1px 1px 0 rgba(254, 163, 171, 0.595), 1px 1px 0 rgba(254, 163, 171, 0.595);
+>>>>>>> 8c56ceb71a47a06286fbb44d6a04d17948aa9a43
     font-weight: 600;
     font-size: 1.3rem;
     display: grid;
@@ -197,7 +202,10 @@ body {
   }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8c56ceb71a47a06286fbb44d6a04d17948aa9a43
 /*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
   ▒▒ VERSION TABLET ▒▒
   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒*/
@@ -280,6 +288,10 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     text-align: center;
+<<<<<<< HEAD
+=======
+    margin-top: 2rem;
+>>>>>>> 8c56ceb71a47a06286fbb44d6a04d17948aa9a43
   }
 
 /*▒▒▒▒▒▒▒▒▒▒▒▒
@@ -381,6 +393,10 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     text-align: center;
+<<<<<<< HEAD
+=======
+    margin-top: 2rem;
+>>>>>>> 8c56ceb71a47a06286fbb44d6a04d17948aa9a43
   }
 
 /*▒▒▒▒▒▒▒▒▒▒▒▒
