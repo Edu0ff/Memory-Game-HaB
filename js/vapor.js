@@ -637,3 +637,6 @@ function playPause() {
 }
 
 
+window.addEventListener("load", (event) => {
+  new cursoreffects.ghostCursor();
+});
