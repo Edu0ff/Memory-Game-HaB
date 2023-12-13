@@ -2,7 +2,8 @@
 # Memory Card Game Project
 
 Now that we learned the basics to frontend developing, we started this first project to put our knowledge in practice. 
-This is our card matching game with 4 different themes, one for each member of the group.
+This is our card matching game with 4 different themes, one for each member of the group.  
+If you would like to play, just click [here](https://memorygamehab.netlify.app/)!
 
 ## Features ⚒️
 4 Themes : **Animal Crossing** 🐼 
